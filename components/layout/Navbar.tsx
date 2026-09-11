@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+
 import {
   motion,
   useReducedMotion,
@@ -76,7 +77,10 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener(
+      "resize",
+      handleResize,
+    );
 
     return () => {
       window.removeEventListener(
@@ -129,6 +133,7 @@ export default function Navbar() {
             backgroundColor: isScrolled
               ? "rgba(5, 5, 5, 0.88)"
               : "rgba(5, 5, 5, 0.42)",
+
             borderColor: isScrolled
               ? "rgba(255, 255, 255, 0.13)"
               : "rgba(255, 255, 255, 0.08)",
@@ -138,18 +143,25 @@ export default function Navbar() {
           }}
           className="flex min-h-14 items-center justify-between rounded-2xl border px-4 shadow-2xl shadow-black/10 backdrop-blur-xl sm:px-5"
         >
+          {/* Logo */}
           <a
             href="#home"
             onClick={closeMenu}
-            aria-label="Go to homepage"
             className="group relative flex items-center text-lg font-bold tracking-[-0.04em]"
           >
             <span className="transition-colors duration-300 group-hover:text-sky-300">
               FE
             </span>
 
-            <span className="ml-0.5 text-sky-400 transition-transform duration-300 group-hover:translate-x-0.5">
+            <span
+              aria-hidden="true"
+              className="ml-0.5 text-sky-400 transition-transform duration-300 group-hover:translate-x-0.5"
+            >
               .
+            </span>
+
+            <span className="sr-only">
+              . Home
             </span>
           </a>
 
@@ -164,7 +176,9 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   aria-current={
-                    isActive ? "location" : undefined
+                    isActive
+                      ? "location"
+                      : undefined
                   }
                   className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 ${
                     isActive
@@ -215,7 +229,7 @@ export default function Navbar() {
               className={`ml-2 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
                 isContactActive
                   ? "bg-sky-400 text-black shadow-[0_0_35px_rgba(56,189,248,0.15)]"
-                  : "bg-gray-500 text-black hover:bg-sky-400"
+                  : "bg-white text-black hover:bg-sky-400"
               }`}
             >
               Contact
@@ -260,6 +274,7 @@ export default function Navbar() {
           </button>
         </motion.nav>
 
+        {/* Mobile menu */}
         <motion.div
           initial={false}
           animate={{
@@ -298,7 +313,10 @@ export default function Navbar() {
                     <span>{item.label}</span>
 
                     {isActive && (
-                      <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
+                      <span
+                        aria-hidden="true"
+                        className="h-1.5 w-1.5 rounded-full bg-sky-400"
+                      />
                     )}
                   </a>
                 );

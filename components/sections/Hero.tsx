@@ -92,31 +92,19 @@ export default function Hero() {
               </span>
             </motion.h1>
 
-            <motion.p
-              initial={
-                shouldReduceMotion
-                  ? false
-                  : {
-                      opacity: 0,
-                      y: 30,
-                    }
-              }
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.8,
-                delay: shouldReduceMotion ? 0 : 0.2,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="mt-7 max-w-2xl text-[15px] leading-7 text-zinc-400 sm:mt-8 sm:text-lg sm:leading-8"
-            >
+            {/*
+             * Intentionally NOT animated.
+             *
+             * Lighthouse identifies this paragraph as the LCP element.
+             * Rendering it immediately avoids delaying LCP behind a
+             * client-side entrance animation.
+             */}
+            <p className="mt-7 max-w-2xl text-[15px] leading-7 text-zinc-400 sm:mt-8 sm:text-lg sm:leading-8">
               Software Engineer focused on building
               full-stack applications, automation systems,
               and data-driven solutions that solve real
               operational problems.
-            </motion.p>
+            </p>
 
             <motion.div
               initial={
@@ -133,7 +121,7 @@ export default function Hero() {
               }}
               transition={{
                 duration: 0.8,
-                delay: shouldReduceMotion ? 0 : 0.3,
+                delay: shouldReduceMotion ? 0 : 0.25,
                 ease: [0.22, 1, 0.36, 1],
               }}
               className="mt-8 flex flex-col gap-3 min-[430px]:flex-row sm:mt-10 sm:gap-4"
@@ -154,7 +142,7 @@ export default function Hero() {
                         scale: 0.98,
                       }
                 }
-                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-gray-500 px-6 py-3.5 text-sm font-semibold text-blue-400 transition-colors hover:bg-sky-400 sm:px-7"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-sky-400 sm:px-7"
               >
                 View my work
 
@@ -211,7 +199,7 @@ export default function Hero() {
               }}
               transition={{
                 duration: 1,
-                delay: shouldReduceMotion ? 0 : 0.5,
+                delay: shouldReduceMotion ? 0 : 0.45,
               }}
               className="mt-10 flex max-w-2xl flex-wrap gap-x-5 gap-y-3 sm:mt-14 sm:gap-x-6"
             >

@@ -222,7 +222,13 @@ export default function ProjectCard({
                       href={href}
                       className="group/link inline-flex items-center gap-3 text-sm font-semibold text-white"
                     >
-                      View case study
+                      <span>
+                        View case study
+
+                        <span className="sr-only">
+                          : {title}
+                        </span>
+                      </span>
 
                       <svg
                         width="17"
