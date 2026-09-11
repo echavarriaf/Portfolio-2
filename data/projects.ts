@@ -102,7 +102,7 @@ export const projects: Project[] = [
     category: "Machine Learning · APIs",
     title: "Applied ML Services",
     description:
-      "End-to-end machine learning experiments that turn Python models into usable applications through prediction APIs and interactive frontend experiences.",
+      "End-to-end machine learning implementations that turn Python models into usable applications through prediction APIs and interactive frontend experiences.",
     technologies: [
       "Python",
       "FastAPI",
