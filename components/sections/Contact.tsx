@@ -1,33 +1,24 @@
 "use client";
 
-import {
-  motion,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 import { contact } from "@/data/contact";
 
 export default function Contact() {
   const shouldReduceMotion = useReducedMotion();
 
-  const hasEmail =
-    !contact.email.startsWith("YOUR_");
+  const hasEmail = !contact.email.startsWith("YOUR_");
 
-  const hasGithub =
-    !contact.github.startsWith("YOUR_");
+  const hasGithub = !contact.github.startsWith("YOUR_");
 
-  const hasLinkedin =
-    !contact.linkedin.startsWith("YOUR_");
+  const hasLinkedin = !contact.linkedin.startsWith("YOUR_");
 
   return (
     <section
       id="contact"
       className="relative overflow-hidden border-t border-white/[0.06] px-5 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-      >
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute bottom-[-250px] left-1/2 h-[650px] w-[650px] -translate-x-1/2 rounded-full bg-sky-400/[0.07] blur-[150px]" />
       </div>
 
@@ -55,9 +46,7 @@ export default function Contact() {
           }}
           className="flex items-center gap-4"
         >
-          <span className="font-mono text-xs text-sky-400">
-            05
-          </span>
+          <span className="font-mono text-xs text-sky-400">05</span>
 
           <span className="h-px w-10 bg-white/10" />
 
@@ -95,13 +84,9 @@ export default function Contact() {
             </p>
 
             <h2 className="max-w-5xl text-[clamp(3rem,11vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.055em]">
-              <span className="block">
-                Let&apos;s build
-              </span>
+              <span className="block">Let&apos;s build</span>
 
-              <span className="block text-zinc-500">
-                something that
-              </span>
+              <span className="block text-zinc-500">something that</span>
 
               <span className="block">
                 makes an{" "}
@@ -161,7 +146,6 @@ export default function Contact() {
                   className="group inline-flex min-h-12 w-full items-center justify-center gap-4 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition-colors duration-300 hover:bg-sky-400 min-[430px]:w-auto sm:px-7 sm:py-4"
                 >
                   Start a conversation
-
                   <ArrowUpRightIcon />
                 </motion.a>
               ) : (
@@ -199,40 +183,20 @@ export default function Contact() {
           <ContactLink
             label="Email"
             value={contact.email}
-            href={
-              hasEmail
-                ? `mailto:${contact.email}`
-                : undefined
-            }
+            href={hasEmail ? `mailto:${contact.email}` : undefined}
             external={false}
           />
 
           <ContactLink
             label="LinkedIn"
-            value={
-              hasLinkedin
-                ? "Connect with me"
-                : "Add LinkedIn URL"
-            }
-            href={
-              hasLinkedin
-                ? contact.linkedin
-                : undefined
-            }
+            value={hasLinkedin ? "Connect with me" : "Add LinkedIn URL"}
+            href={hasLinkedin ? contact.linkedin : undefined}
           />
 
           <ContactLink
             label="GitHub"
-            value={
-              hasGithub
-                ? "Explore my code"
-                : "Add GitHub URL"
-            }
-            href={
-              hasGithub
-                ? contact.github
-                : undefined
-            }
+            value={hasGithub ? "Explore my code" : "Add GitHub URL"}
+            href={hasGithub ? contact.github : undefined}
           />
         </motion.div>
 
@@ -325,11 +289,7 @@ function ContactLink({
     "group flex min-h-[125px] items-center justify-between gap-5 bg-[#070707] p-5 transition-colors duration-300 hover:bg-white/[0.025] sm:min-h-[150px] sm:p-8";
 
   if (!href) {
-    return (
-      <div className={className}>
-        {content}
-      </div>
-    );
+    return <div className={className}>{content}</div>;
   }
 
   return (

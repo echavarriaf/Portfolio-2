@@ -3,36 +3,23 @@ import type { CaseStudy } from "@/data/caseStudies";
 import { contact } from "@/data/contact";
 import { siteConfig } from "@/data/site";
 
-const personId =
-  `${siteConfig.url}/#person`;
+const personId = `${siteConfig.url}/#person`;
 
-const websiteId =
-  `${siteConfig.url}/#website`;
+const websiteId = `${siteConfig.url}/#website`;
 
-function isValidPublicUrl(
-  value?: string,
-): value is string {
+function isValidPublicUrl(value?: string): value is string {
   if (!value) {
     return false;
   }
 
-  if (
-    value.includes("YOUR_") ||
-    value.includes("example.com")
-  ) {
+  if (value.includes("YOUR_") || value.includes("example.com")) {
     return false;
   }
 
-  return (
-    value.startsWith("https://") ||
-    value.startsWith("http://")
-  );
+  return value.startsWith("https://") || value.startsWith("http://");
 }
 
-const sameAs = [
-  contact.github,
-  contact.linkedin,
-].filter(isValidPublicUrl);
+const sameAs = [contact.github, contact.linkedin].filter(isValidPublicUrl);
 
 export const globalStructuredData = {
   "@context": "https://schema.org",
@@ -48,8 +35,7 @@ export const globalStructuredData = {
 
       jobTitle: "Software Engineer",
 
-      description:
-        siteConfig.description,
+      description: siteConfig.description,
 
       knowsAbout: [
         "Software Engineering",
@@ -83,8 +69,7 @@ export const globalStructuredData = {
 
       name: siteConfig.name,
 
-      description:
-        siteConfig.description,
+      description: siteConfig.description,
 
       inLanguage: "en-US",
 
@@ -99,14 +84,10 @@ export const globalStructuredData = {
   ],
 };
 
-export function getCaseStudyStructuredData(
-  caseStudy: CaseStudy,
-) {
-  const caseStudyUrl =
-    `${siteConfig.url}/work/${caseStudy.slug}`;
+export function getCaseStudyStructuredData(caseStudy: CaseStudy) {
+  const caseStudyUrl = `${siteConfig.url}/work/${caseStudy.slug}`;
 
-  const creativeWorkId =
-    `${caseStudyUrl}/#case-study`;
+  const creativeWorkId = `${caseStudyUrl}/#case-study`;
 
   return {
     "@context": "https://schema.org",
@@ -121,22 +102,15 @@ export function getCaseStudyStructuredData(
 
     headline: caseStudy.title,
 
-    description:
-      caseStudy.description,
+    description: caseStudy.description,
 
-    abstract:
-      caseStudy.subtitle,
+    abstract: caseStudy.subtitle,
 
-    genre:
-      "Software Engineering Case Study",
+    genre: "Software Engineering Case Study",
 
-    inLanguage:
-      "en-US",
+    inLanguage: "en-US",
 
-    keywords: [
-      caseStudy.category,
-      ...caseStudy.technologies,
-    ],
+    keywords: [caseStudy.category, ...caseStudy.technologies],
 
     author: {
       "@id": personId,
@@ -159,9 +133,6 @@ export function getCaseStudyStructuredData(
       "@id": caseStudyUrl,
     },
 
-    about: [
-      caseStudy.category,
-      ...caseStudy.technologies,
-    ],
+    about: [caseStudy.category, ...caseStudy.technologies],
   };
 }

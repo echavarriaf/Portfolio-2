@@ -21,11 +21,7 @@ export default function Experience() {
     offset: ["start 70%", "end 70%"],
   });
 
-  const lineScale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, 1],
-  );
+  const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <section
@@ -59,9 +55,7 @@ export default function Experience() {
             }}
           >
             <div className="flex items-center gap-4">
-              <span className="font-mono text-xs text-sky-400">
-                03
-              </span>
+              <span className="font-mono text-xs text-sky-400">03</span>
 
               <span className="h-px w-10 bg-white/10" />
 
@@ -73,10 +67,7 @@ export default function Experience() {
             <h2 className="mt-8 text-4xl font-bold tracking-[-0.05em] sm:text-5xl lg:text-6xl">
               From enterprise
               <br />
-
-              <span className="text-zinc-500">
-                systems to automation.
-              </span>
+              <span className="text-zinc-500">systems to automation.</span>
             </h2>
           </motion.div>
 
@@ -103,10 +94,10 @@ export default function Experience() {
             }}
             className="max-w-2xl text-lg leading-8 text-zinc-400 lg:justify-self-end"
           >
-            My career has evolved across enterprise software,
-            full-stack engineering, data systems, and warehouse
-            automation — with the same focus throughout: understanding
-            how systems work and making them better.
+            My career has evolved across enterprise software, full-stack
+            engineering, data systems, and warehouse automation — with the same
+            focus throughout: understanding how systems work and making them
+            better.
           </motion.p>
         </div>
 
@@ -164,11 +155,9 @@ export default function Experience() {
           </p>
 
           <p className="max-w-4xl text-2xl font-medium leading-relaxed tracking-[-0.025em] text-zinc-400 sm:text-3xl">
-            I&apos;m most effective when I can understand a
-            process end-to-end and use{" "}
-            <span className="text-white">
-              software, automation, and data
-            </span>{" "}
+            I&apos;m most effective when I can understand a process end-to-end
+            and use{" "}
+            <span className="text-white">software, automation, and data</span>{" "}
             together to improve it.
           </p>
         </motion.div>

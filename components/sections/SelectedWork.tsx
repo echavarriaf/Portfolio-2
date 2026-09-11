@@ -2,10 +2,7 @@
 
 import type { ComponentType } from "react";
 
-import {
-  motion,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 import BudgetSystemVisual from "@/components/projects/BudgetSystemVisual";
 import CorrectiveActionVisual from "@/components/projects/CorrectiveActionVisual";
@@ -14,15 +11,9 @@ import WarehouseSystemVisual from "@/components/projects/WarehouseSystemVisual";
 
 import ProjectCard from "@/components/ui/ProjectCard";
 
-import {
-  projects,
-  type ProjectVisual,
-} from "@/data/projects";
+import { projects, type ProjectVisual } from "@/data/projects";
 
-const projectVisuals: Record<
-  ProjectVisual,
-  ComponentType
-> = {
+const projectVisuals: Record<ProjectVisual, ComponentType> = {
   warehouse: WarehouseSystemVisual,
   budget: BudgetSystemVisual,
   "corrective-action": CorrectiveActionVisual,
@@ -61,9 +52,7 @@ export default function SelectedWork() {
             }}
           >
             <div className="flex items-center gap-4">
-              <span className="font-mono text-xs text-sky-400">
-                02
-              </span>
+              <span className="font-mono text-xs text-sky-400">02</span>
 
               <span className="h-px w-10 bg-white/10" />
 
@@ -75,10 +64,7 @@ export default function SelectedWork() {
             <h2 className="mt-8 text-4xl font-bold tracking-[-0.05em] sm:text-5xl lg:text-6xl">
               Built around
               <br />
-
-              <span className="text-zinc-500">
-                real problems.
-              </span>
+              <span className="text-zinc-500">real problems.</span>
             </h2>
           </motion.div>
 
@@ -105,16 +91,15 @@ export default function SelectedWork() {
             }}
             className="max-w-2xl text-lg leading-8 text-zinc-400 lg:justify-self-end"
           >
-            I focus on systems where software has a measurable
-            operational impact — reducing manual work, improving
-            visibility, and helping people make faster decisions.
+            I focus on systems where software has a measurable operational
+            impact — reducing manual work, improving visibility, and helping
+            people make faster decisions.
           </motion.p>
         </div>
 
         <div className="mt-20 space-y-10 lg:mt-28 lg:space-y-14">
           {projects.map((project) => {
-            const Visual =
-              projectVisuals[project.visual];
+            const Visual = projectVisuals[project.visual];
 
             return (
               <ProjectCard

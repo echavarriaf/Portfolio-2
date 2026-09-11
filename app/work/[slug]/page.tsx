@@ -69,10 +69,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function CaseStudyPage({
-  params,
-}: CaseStudyPageProps) {
-    await new Promise((resolve) => {
+export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
+  await new Promise((resolve) => {
     setTimeout(resolve, 2000);
   });
 
@@ -84,8 +82,7 @@ export default async function CaseStudyPage({
     notFound();
   }
 
-  const nextCaseStudy =
-    getNextCaseStudy(caseStudy.slug);
+  const nextCaseStudy = getNextCaseStudy(caseStudy.slug);
 
   return (
     <>
@@ -105,9 +102,7 @@ export default async function CaseStudyPage({
                 FE
               </span>
 
-              <span className="ml-0.5 text-sky-400">
-                .
-              </span>
+              <span className="ml-0.5 text-sky-400">.</span>
             </Link>
 
             <Link
@@ -120,7 +115,6 @@ export default async function CaseStudyPage({
               >
                 ←
               </span>
-
               Back to work
             </Link>
           </div>
@@ -155,10 +149,7 @@ export default async function CaseStudyPage({
 
             <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] md:grid-cols-3">
               {caseStudy.metrics.map((metric) => (
-                <div
-                  key={metric.label}
-                  className="bg-[#070707] p-6 sm:p-8"
-                >
+                <div key={metric.label} className="bg-[#070707] p-6 sm:p-8">
                   <p className="text-3xl font-semibold tracking-[-0.04em] text-white">
                     {metric.value}
                   </p>
@@ -197,25 +188,20 @@ export default async function CaseStudyPage({
           title={caseStudy.sectionTitles.solution}
         >
           <div className="space-y-4">
-            {caseStudy.solution.map(
-              (item, index) => (
-                <div
-                  key={item}
-                  className="flex gap-5 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 sm:p-6"
-                >
-                  <span className="mt-0.5 shrink-0 font-mono text-xs text-sky-400">
-                    {String(index + 1).padStart(
-                      2,
-                      "0",
-                    )}
-                  </span>
+            {caseStudy.solution.map((item, index) => (
+              <div
+                key={item}
+                className="flex gap-5 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 sm:p-6"
+              >
+                <span className="mt-0.5 shrink-0 font-mono text-xs text-sky-400">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-                  <p className="text-sm leading-7 text-zinc-400 sm:text-base">
-                    {item}
-                  </p>
-                </div>
-              ),
-            )}
+                <p className="text-sm leading-7 text-zinc-400 sm:text-base">
+                  {item}
+                </p>
+              </div>
+            ))}
           </div>
         </CaseSection>
 
@@ -223,16 +209,12 @@ export default async function CaseStudyPage({
         <CaseSection
           number="03"
           label="Architecture"
-          title={
-            caseStudy.sectionTitles.architecture
-          }
+          title={caseStudy.sectionTitles.architecture}
           wide
         >
           <ArchitectureFlow
             steps={caseStudy.architecture}
-            stageLabels={
-              caseStudy.architectureStageLabels
-            }
+            stageLabels={caseStudy.architectureStageLabels}
           />
         </CaseSection>
 
@@ -243,46 +225,38 @@ export default async function CaseStudyPage({
           title={caseStudy.sectionTitles.impact}
         >
           <div className="overflow-hidden rounded-[2rem] border border-white/[0.07]">
-            {caseStudy.impact.map(
-              (impact, index) => (
-                <div
-                  key={impact.label}
-                  className={`grid gap-6 bg-[#070707] p-6 sm:p-8 md:grid-cols-[1fr_auto_1fr] md:items-center ${
-                    index !== 0
-                      ? "border-t border-white/[0.07]"
-                      : ""
-                  }`}
-                >
-                  <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-700">
-                      Before
-                    </p>
+            {caseStudy.impact.map((impact, index) => (
+              <div
+                key={impact.label}
+                className={`grid gap-6 bg-[#070707] p-6 sm:p-8 md:grid-cols-[1fr_auto_1fr] md:items-center ${
+                  index !== 0 ? "border-t border-white/[0.07]" : ""
+                }`}
+              >
+                <div>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-700">
+                    Before
+                  </p>
 
-                    <p className="mt-3 text-xl font-semibold text-zinc-500 sm:text-2xl">
-                      {impact.before}
-                    </p>
-                  </div>
-
-                  <div className="hidden text-zinc-700 md:block">
-                    →
-                  </div>
-
-                  <div className="md:text-right">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sky-400">
-                      After
-                    </p>
-
-                    <p className="mt-3 text-xl font-semibold text-white sm:text-2xl">
-                      {impact.after}
-                    </p>
-
-                    <p className="mt-2 text-xs text-zinc-600">
-                      {impact.label}
-                    </p>
-                  </div>
+                  <p className="mt-3 text-xl font-semibold text-zinc-500 sm:text-2xl">
+                    {impact.before}
+                  </p>
                 </div>
-              ),
-            )}
+
+                <div className="hidden text-zinc-700 md:block">→</div>
+
+                <div className="md:text-right">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-sky-400">
+                    After
+                  </p>
+
+                  <p className="mt-3 text-xl font-semibold text-white sm:text-2xl">
+                    {impact.after}
+                  </p>
+
+                  <p className="mt-2 text-xs text-zinc-600">{impact.label}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </CaseSection>
 
@@ -290,21 +264,17 @@ export default async function CaseStudyPage({
         <CaseSection
           number="05"
           label="Technology"
-          title={
-            caseStudy.sectionTitles.technology
-          }
+          title={caseStudy.sectionTitles.technology}
         >
           <div className="flex flex-wrap gap-3">
-            {caseStudy.technologies.map(
-              (technology) => (
-                <span
-                  key={technology}
-                  className="rounded-full border border-white/[0.08] bg-white/[0.025] px-5 py-3 font-mono text-xs text-zinc-400"
-                >
-                  {technology}
-                </span>
-              ),
-            )}
+            {caseStudy.technologies.map((technology) => (
+              <span
+                key={technology}
+                className="rounded-full border border-white/[0.08] bg-white/[0.025] px-5 py-3 font-mono text-xs text-zinc-400"
+              >
+                {technology}
+              </span>
+            ))}
           </div>
         </CaseSection>
 
@@ -375,9 +345,7 @@ function CaseSection({
           <div>
             <div className="max-w-3xl">
               <div className="flex items-center gap-4">
-                <span className="font-mono text-xs text-sky-400">
-                  {number}
-                </span>
+                <span className="font-mono text-xs text-sky-400">{number}</span>
 
                 <span className="h-px w-10 bg-white/10" />
 
@@ -391,17 +359,13 @@ function CaseSection({
               </h2>
             </div>
 
-            <div className="mt-14 sm:mt-16 lg:mt-20">
-              {children}
-            </div>
+            <div className="mt-14 sm:mt-16 lg:mt-20">{children}</div>
           </div>
         ) : (
           <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
             <div>
               <div className="flex items-center gap-4">
-                <span className="font-mono text-xs text-sky-400">
-                  {number}
-                </span>
+                <span className="font-mono text-xs text-sky-400">{number}</span>
 
                 <span className="h-px w-10 bg-white/10" />
 
@@ -415,9 +379,7 @@ function CaseSection({
               </h2>
             </div>
 
-            <div className="min-w-0">
-              {children}
-            </div>
+            <div className="min-w-0">{children}</div>
           </div>
         )}
       </div>

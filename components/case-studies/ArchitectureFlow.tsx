@@ -2,10 +2,7 @@
 
 import { Fragment } from "react";
 
-import {
-  motion,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 import type { ArchitectureStep } from "@/data/caseStudies";
 import ArchitectureIcon from "../ui/icons/ArchitectureIcon";
@@ -101,9 +98,7 @@ function ArchitectureNode({
       }}
       transition={{
         duration: 0.65,
-        delay: shouldReduceMotion
-          ? 0
-          : index * 0.08,
+        delay: shouldReduceMotion ? 0 : index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
       whileHover={
@@ -120,9 +115,7 @@ function ArchitectureNode({
 
       <div className="relative z-10 flex h-full flex-col">
         <div className="flex items-center justify-between gap-4">
-          <span className="font-mono text-xs text-sky-400">
-            {step.number}
-          </span>
+          <span className="font-mono text-xs text-sky-400">{step.number}</span>
 
           {stageLabel && (
             <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-zinc-700 2xl:text-[9px]">
@@ -142,10 +135,7 @@ function ArchitectureNode({
         </p>
 
         <div className="mt-auto pt-7">
-          <NodeActivity
-            index={index}
-            shouldReduceMotion={shouldReduceMotion}
-          />
+          <NodeActivity index={index} shouldReduceMotion={shouldReduceMotion} />
         </div>
       </div>
     </motion.article>
@@ -183,9 +173,7 @@ function DesktopConnector({
         }}
         transition={{
           duration: 0.8,
-          delay: shouldReduceMotion
-            ? 0
-            : 0.25 + index * 0.12,
+          delay: shouldReduceMotion ? 0 : 0.25 + index * 0.12,
           ease: [0.22, 1, 0.36, 1],
         }}
         style={{
@@ -247,9 +235,7 @@ function MobileConnector({
         }}
         transition={{
           duration: 0.7,
-          delay: shouldReduceMotion
-            ? 0
-            : 0.15 + index * 0.1,
+          delay: shouldReduceMotion ? 0 : 0.15 + index * 0.1,
         }}
         style={{
           transformOrigin: "top",
@@ -321,8 +307,7 @@ function NodeActivity({
     },
   ];
 
-  const activity =
-    labels[index] ?? labels[labels.length - 1];
+  const activity = labels[index] ?? labels[labels.length - 1];
 
   return (
     <div className="flex min-w-0 items-center justify-between gap-3 rounded-lg border border-white/[0.05] bg-black/30 px-3 py-2.5">

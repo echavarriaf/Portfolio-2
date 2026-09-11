@@ -44,9 +44,7 @@ export default function Footer() {
         </a>
 
         <div className="flex flex-col gap-2 text-xs text-zinc-600 sm:items-end">
-          <p>
-            © {year} Felix Echavarria
-          </p>
+          <p>© {year} Felix Echavarria</p>
 
           <p className="font-mono text-[10px]">
             Built with Next.js · TypeScript · Motion

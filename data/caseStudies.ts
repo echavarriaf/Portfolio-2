@@ -83,20 +83,15 @@ export const caseStudies: CaseStudy[] = [
     ],
 
     sectionTitles: {
-      problem:
-        "The information existed. Getting to it was the problem.",
+      problem: "The information existed. Getting to it was the problem.",
 
-      solution:
-        "Bring operational data closer to the decision.",
+      solution: "Bring operational data closer to the decision.",
 
-      architecture:
-        "From machine signal to useful information.",
+      architecture: "From machine signal to useful information.",
 
-      impact:
-        "Less searching. More actionable information.",
+      impact: "Less searching. More actionable information.",
 
-      technology:
-        "A practical stack for an operational problem.",
+      technology: "A practical stack for an operational problem.",
     },
 
     problem: [
@@ -123,8 +118,7 @@ export const caseStudies: CaseStudy[] = [
       {
         number: "02",
         title: "Python",
-        description:
-          "Python reads and processes the relevant PLC signals.",
+        description: "Python reads and processes the relevant PLC signals.",
       },
       {
         number: "03",
@@ -140,12 +134,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
 
-    architectureStageLabels: [
-      "Signal",
-      "Process",
-      "Application",
-      "Output",
-    ],
+    architectureStageLabels: ["Signal", "Process", "Application", "Output"],
 
     impact: [
       {
@@ -219,8 +208,7 @@ export const caseStudies: CaseStudy[] = [
       solution:
         "Model the financial workflow instead of forcing the workflow into a template.",
 
-      architecture:
-        "From user activity to structured financial state.",
+      architecture: "From user activity to structured financial state.",
 
       impact:
         "Less manual reconciliation. More clarity about what is actually available.",
@@ -270,12 +258,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
 
-    architectureStageLabels: [
-      "Interface",
-      "Access",
-      "Data",
-      "Automation",
-    ],
+    architectureStageLabels: ["Interface", "Access", "Data", "Automation"],
 
     impact: [
       {
@@ -349,14 +332,11 @@ export const caseStudies: CaseStudy[] = [
       solution:
         "Turn the process into a workflow with ownership, state, and automation.",
 
-      architecture:
-        "From corrective-action entry to structured follow-up.",
+      architecture: "From corrective-action entry to structured follow-up.",
 
-      impact:
-        "A clearer path from issue identification to resolution.",
+      impact: "A clearer path from issue identification to resolution.",
 
-      technology:
-        "Low-code tools applied to a real operational workflow.",
+      technology: "Low-code tools applied to a real operational workflow.",
     },
 
     problem: [
@@ -400,12 +380,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
 
-    architectureStageLabels: [
-      "Input",
-      "Rules",
-      "Workflow",
-      "Follow-up",
-    ],
+    architectureStageLabels: ["Input", "Rules", "Workflow", "Follow-up"],
 
     impact: [
       {
@@ -449,8 +424,7 @@ export const caseStudies: CaseStudy[] = [
 
     title: "Applied ML Services",
 
-    subtitle:
-      "Taking machine-learning models beyond the notebook.",
+    subtitle: "Taking machine-learning models beyond the notebook.",
 
     description:
       "End-to-end machine-learning implementations that connect data preparation, trained Python models, prediction APIs, and frontend applications.",
@@ -474,17 +448,13 @@ export const caseStudies: CaseStudy[] = [
       problem:
         "A trained model is only useful when something can actually use it.",
 
-      solution:
-        "Turn model inference into a reusable software service.",
+      solution: "Turn model inference into a reusable software service.",
 
-      architecture:
-        "From raw features to an application-ready prediction.",
+      architecture: "From raw features to an application-ready prediction.",
 
-      impact:
-        "Machine learning becomes part of a usable software system.",
+      impact: "Machine learning becomes part of a usable software system.",
 
-      technology:
-        "A lightweight stack for serving and consuming predictions.",
+      technology: "A lightweight stack for serving and consuming predictions.",
     },
 
     problem: [
@@ -528,12 +498,7 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
 
-    architectureStageLabels: [
-      "Data",
-      "Model",
-      "API",
-      "Client",
-    ],
+    architectureStageLabels: ["Data", "Model", "API", "Client"],
 
     impact: [
       {
@@ -565,17 +530,11 @@ export const caseStudies: CaseStudy[] = [
   },
 ];
 
-export function getCaseStudy(
-  slug: string,
-): CaseStudy | undefined {
-  return caseStudies.find(
-    (caseStudy) => caseStudy.slug === slug,
-  );
+export function getCaseStudy(slug: string): CaseStudy | undefined {
+  return caseStudies.find((caseStudy) => caseStudy.slug === slug);
 }
 
-export function getNextCaseStudy(
-  slug: string,
-): CaseStudy | undefined {
+export function getNextCaseStudy(slug: string): CaseStudy | undefined {
   const currentIndex = caseStudies.findIndex(
     (caseStudy) => caseStudy.slug === slug,
   );
@@ -584,8 +543,7 @@ export function getNextCaseStudy(
     return undefined;
   }
 
-  const nextIndex =
-    (currentIndex + 1) % caseStudies.length;
+  const nextIndex = (currentIndex + 1) % caseStudies.length;
 
   return caseStudies[nextIndex];
 }

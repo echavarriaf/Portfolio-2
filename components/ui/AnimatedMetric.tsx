@@ -1,16 +1,8 @@
 "use client";
 
-import {
-  motion,
-  useInView,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useInView, useReducedMotion } from "motion/react";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 
 type AnimatedMetricProps = {
   value: number;
@@ -29,43 +21,30 @@ export default function AnimatedMetric({
   description,
   duration = 1400,
 }: AnimatedMetricProps) {
-  const containerRef =
-    useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const animationFrameRef =
-    useRef<number | null>(null);
+  const animationFrameRef = useRef<number | null>(null);
 
-  const [displayValue, setDisplayValue] =
-    useState(0);
+  const [displayValue, setDisplayValue] = useState(0);
 
   const isInView = useInView(containerRef, {
     once: true,
     amount: 0.5,
   });
 
-  const shouldReduceMotion =
-    useReducedMotion();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    if (
-      !isInView ||
-      shouldReduceMotion
-    ) {
+    if (!isInView || shouldReduceMotion) {
       return;
     }
 
     const startTime = performance.now();
 
-    const animate = (
-      currentTime: number,
-    ) => {
-      const elapsed =
-        currentTime - startTime;
+    const animate = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
 
-      const progress = Math.min(
-        elapsed / duration,
-        1,
-      );
+      const progress = Math.min(elapsed / duration, 1);
 
       /*
        * Ease out cubic.
@@ -73,44 +52,27 @@ export default function AnimatedMetric({
        * Starts quickly and slows as it approaches
        * the final number.
        */
-      const easedProgress =
-        1 - Math.pow(1 - progress, 3);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
 
-      const nextValue = Math.round(
-        value * easedProgress,
-      );
+      const nextValue = Math.round(value * easedProgress);
 
       setDisplayValue(nextValue);
 
       if (progress < 1) {
-        animationFrameRef.current =
-          requestAnimationFrame(animate);
+        animationFrameRef.current = requestAnimationFrame(animate);
       }
     };
 
-    animationFrameRef.current =
-      requestAnimationFrame(animate);
+    animationFrameRef.current = requestAnimationFrame(animate);
 
     return () => {
-      if (
-        animationFrameRef.current !== null
-      ) {
-        cancelAnimationFrame(
-          animationFrameRef.current,
-        );
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [
-    duration,
-    isInView,
-    shouldReduceMotion,
-    value,
-  ]);
+  }, [duration, isInView, shouldReduceMotion, value]);
 
-  const visibleValue =
-    shouldReduceMotion
-      ? value
-      : displayValue;
+  const visibleValue = shouldReduceMotion ? value : displayValue;
 
   return (
     <motion.div
@@ -149,14 +111,10 @@ export default function AnimatedMetric({
           {suffix}
         </p>
 
-        <p className="mt-4 text-sm font-medium text-zinc-300">
-          {label}
-        </p>
+        <p className="mt-4 text-sm font-medium text-zinc-300">{label}</p>
 
         {description && (
-          <p className="mt-2 text-xs leading-6 text-zinc-600">
-            {description}
-          </p>
+          <p className="mt-2 text-xs leading-6 text-zinc-600">{description}</p>
         )}
       </div>
     </motion.div>

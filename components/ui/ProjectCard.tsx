@@ -10,10 +10,7 @@ import {
   useTransform,
 } from "motion/react";
 
-import type {
-  MouseEvent,
-  ReactNode,
-} from "react";
+import type { MouseEvent, ReactNode } from "react";
 
 type ProjectMetric = {
   label: string;
@@ -46,17 +43,9 @@ export default function ProjectCard({
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const rotateX = useTransform(
-    mouseY,
-    [-0.5, 0.5],
-    [4, -4],
-  );
+  const rotateX = useTransform(mouseY, [-0.5, 0.5], [4, -4]);
 
-  const rotateY = useTransform(
-    mouseX,
-    [-0.5, 0.5],
-    [-4, 4],
-  );
+  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-4, 4]);
 
   const smoothRotateX = useSpring(rotateX, {
     stiffness: 180,
@@ -68,43 +57,24 @@ export default function ProjectCard({
     damping: 24,
   });
 
-  const glowX = useTransform(
-    mouseX,
-    [-0.5, 0.5],
-    ["20%", "80%"],
-  );
+  const glowX = useTransform(mouseX, [-0.5, 0.5], ["20%", "80%"]);
 
-  const glowY = useTransform(
-    mouseY,
-    [-0.5, 0.5],
-    ["20%", "80%"],
-  );
+  const glowY = useTransform(mouseY, [-0.5, 0.5], ["20%", "80%"]);
 
-  const handleMouseMove = (
-    event: MouseEvent<HTMLDivElement>,
-  ) => {
+  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
     if (shouldReduceMotion) {
       return;
     }
 
-    if (
-      window.matchMedia("(hover: none)").matches
-    ) {
+    if (window.matchMedia("(hover: none)").matches) {
       return;
     }
 
-    const rect =
-      event.currentTarget.getBoundingClientRect();
+    const rect = event.currentTarget.getBoundingClientRect();
 
-    const x =
-      (event.clientX - rect.left) /
-        rect.width -
-      0.5;
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
 
-    const y =
-      (event.clientY - rect.top) /
-        rect.height -
-      0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
 
     mouseX.set(x);
     mouseY.set(y);
@@ -224,10 +194,7 @@ export default function ProjectCard({
                     >
                       <span>
                         View case study
-
-                        <span className="sr-only">
-                          : {title}
-                        </span>
+                        <span className="sr-only">: {title}</span>
                       </span>
 
                       <svg
@@ -260,10 +227,9 @@ export default function ProjectCard({
 
               <motion.div
                 style={{
-                  transform:
-                    shouldReduceMotion
-                      ? undefined
-                      : "translateZ(35px)",
+                  transform: shouldReduceMotion
+                    ? undefined
+                    : "translateZ(35px)",
                 }}
                 className="relative h-full"
               >

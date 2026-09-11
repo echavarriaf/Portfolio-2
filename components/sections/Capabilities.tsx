@@ -4,10 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 
 import TechMarquee from "@/components/ui/TechMarquee";
 
-import {
-  capabilities,
-  technologies,
-} from "@/data/capabilities";
+import { capabilities, technologies } from "@/data/capabilities";
 
 export default function Capabilities() {
   const shouldReduceMotion = useReducedMotion();
@@ -43,9 +40,7 @@ export default function Capabilities() {
             }}
           >
             <div className="flex items-center gap-4">
-              <span className="font-mono text-xs text-sky-400">
-                04
-              </span>
+              <span className="font-mono text-xs text-sky-400">04</span>
 
               <span className="h-px w-10 bg-white/10" />
 
@@ -57,10 +52,7 @@ export default function Capabilities() {
             <h2 className="mt-8 text-4xl font-bold tracking-[-0.05em] sm:text-5xl lg:text-6xl">
               More than
               <br />
-
-              <span className="text-zinc-500">
-                a tech stack.
-              </span>
+              <span className="text-zinc-500">a tech stack.</span>
             </h2>
           </motion.div>
 
@@ -87,10 +79,9 @@ export default function Capabilities() {
             }}
             className="max-w-2xl text-lg leading-8 text-zinc-400 lg:justify-self-end"
           >
-            Tools matter, but the real value comes from knowing
-            how to combine them. My work sits across software,
-            automation, and data — often connecting all three
-            inside the same solution.
+            Tools matter, but the real value comes from knowing how to combine
+            them. My work sits across software, automation, and data — often
+            connecting all three inside the same solution.
           </motion.p>
         </div>
 
@@ -117,9 +108,7 @@ export default function Capabilities() {
               }}
               transition={{
                 duration: 0.7,
-                delay: shouldReduceMotion
-                  ? 0
-                  : index * 0.08,
+                delay: shouldReduceMotion ? 0 : index * 0.08,
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={
@@ -201,11 +190,7 @@ export default function Capabilities() {
           </div>
 
           <div className="space-y-2">
-            <TechMarquee
-              items={technologies}
-              direction="left"
-              speed={32}
-            />
+            <TechMarquee items={technologies} direction="left" speed={32} />
 
             <TechMarquee
               items={[...technologies].reverse()}
@@ -243,8 +228,8 @@ export default function Capabilities() {
           </p>
 
           <p className="max-w-4xl text-2xl font-medium leading-relaxed tracking-[-0.025em] text-zinc-400 sm:text-3xl">
-            Choose the right technology for the problem — not
-            the other way around — and build systems that are{" "}
+            Choose the right technology for the problem — not the other way
+            around — and build systems that are{" "}
             <span className="text-white">
               useful, maintainable, and measurable.
             </span>

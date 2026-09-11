@@ -32,20 +32,11 @@ export default function MLSystemVisual() {
             </p>
 
             <div className="mt-5 space-y-3">
-              <ModelInput
-                label="Feature A"
-                value="742"
-              />
+              <ModelInput label="Feature A" value="742" />
 
-              <ModelInput
-                label="Feature B"
-                value="0.82"
-              />
+              <ModelInput label="Feature B" value="0.82" />
 
-              <ModelInput
-                label="Feature C"
-                value="14"
-              />
+              <ModelInput label="Feature C" value="14" />
             </div>
 
             <button
@@ -62,9 +53,7 @@ export default function MLSystemVisual() {
             </p>
 
             <div className="mt-5 rounded-xl border border-sky-400/10 bg-sky-400/[0.04] p-4">
-              <p className="font-mono text-[9px] text-sky-300/70">
-                prediction
-              </p>
+              <p className="font-mono text-[9px] text-sky-300/70">prediction</p>
 
               <motion.p
                 initial={
@@ -90,9 +79,7 @@ export default function MLSystemVisual() {
                 87.4%
               </motion.p>
 
-              <p className="mt-1 text-[9px] text-zinc-600">
-                confidence score
-              </p>
+              <p className="mt-1 text-[9px] text-zinc-600">confidence score</p>
             </div>
 
             <div className="mt-4 rounded-xl border border-white/[0.07] bg-white/[0.02] p-4">
@@ -102,36 +89,21 @@ export default function MLSystemVisual() {
 
               <div className="mt-3 space-y-1 font-mono text-[9px] leading-5">
                 <p>
-                  <span className="text-purple-300">
-                    {"{"}
-                  </span>
+                  <span className="text-purple-300">{"{"}</span>
                 </p>
 
                 <p className="pl-3 text-zinc-500">
-                  <span className="text-sky-300">
-                    &quot;prediction&quot;
-                  </span>
-                  :{" "}
-                  <span className="text-orange-300">
-                    0.874
-                  </span>
-                  ,
+                  <span className="text-sky-300">&quot;prediction&quot;</span>:{" "}
+                  <span className="text-orange-300">0.874</span>,
                 </p>
 
                 <p className="pl-3 text-zinc-500">
-                  <span className="text-sky-300">
-                    &quot;status&quot;
-                  </span>
-                  :{" "}
-                  <span className="text-emerald-300">
-                    &quot;success&quot;
-                  </span>
+                  <span className="text-sky-300">&quot;status&quot;</span>:{" "}
+                  <span className="text-emerald-300">&quot;success&quot;</span>
                 </p>
 
                 <p>
-                  <span className="text-purple-300">
-                    {"}"}
-                  </span>
+                  <span className="text-purple-300">{"}"}</span>
                 </p>
               </div>
             </div>
@@ -176,15 +148,11 @@ export default function MLSystemVisual() {
         <div className="mt-3 flex items-center gap-2">
           <PipelineNode label="Data" />
 
-          <span className="text-[9px] text-zinc-700">
-            →
-          </span>
+          <span className="text-[9px] text-zinc-700">→</span>
 
           <PipelineNode label="Model" />
 
-          <span className="text-[9px] text-zinc-700">
-            →
-          </span>
+          <span className="text-[9px] text-zinc-700">→</span>
 
           <PipelineNode label="API" />
         </div>
@@ -193,18 +161,10 @@ export default function MLSystemVisual() {
   );
 }
 
-function ModelInput({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
+function ModelInput({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <label className="text-[9px] text-zinc-600">
-        {label}
-      </label>
+      <label className="text-[9px] text-zinc-600">{label}</label>
 
       <div className="mt-1.5 flex h-9 items-center rounded-lg border border-white/[0.07] bg-white/[0.02] px-3 font-mono text-[10px] text-zinc-400">
         {value}
@@ -218,9 +178,7 @@ function TechStatus({ label }: { label: string }) {
     <div className="flex items-center gap-1.5">
       <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
 
-      <span className="font-mono text-[8px] text-zinc-600">
-        {label}
-      </span>
+      <span className="font-mono text-[8px] text-zinc-600">{label}</span>
     </div>
   );
 }

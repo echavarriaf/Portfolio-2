@@ -1,8 +1,5 @@
 export type ProjectVisual =
-  | "warehouse"
-  | "budget"
-  | "corrective-action"
-  | "machine-learning";
+  "warehouse" | "budget" | "corrective-action" | "machine-learning";
 
 export type ProjectMetric = {
   value: string;

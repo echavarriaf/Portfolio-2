@@ -2,10 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import {
-  motion,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 import useActiveSection from "@/hooks/useActiveSection";
 
@@ -43,13 +40,11 @@ const sectionIds = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] =
-    useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const shouldReduceMotion = useReducedMotion();
 
-  const activeSection =
-    useActiveSection(sectionIds);
+  const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,10 +58,7 @@ export default function Navbar() {
     });
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll,
-      );
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -77,16 +69,10 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener(
-      "resize",
-      handleResize,
-    );
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener(
-        "resize",
-        handleResize,
-      );
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -94,8 +80,7 @@ export default function Navbar() {
     setIsOpen(false);
   };
 
-  const isContactActive =
-    activeSection === "contact";
+  const isContactActive = activeSection === "contact";
 
   return (
     <motion.header
@@ -160,30 +145,21 @@ export default function Navbar() {
               .
             </span>
 
-            <span className="sr-only">
-              . Home
-            </span>
+            <span className="sr-only">. Home</span>
           </a>
 
           {/* Desktop */}
           <div className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => {
-              const isActive =
-                activeSection === item.id;
+              const isActive = activeSection === item.id;
 
               return (
                 <a
                   key={item.href}
                   href={item.href}
-                  aria-current={
-                    isActive
-                      ? "location"
-                      : undefined
-                  }
+                  aria-current={isActive ? "location" : undefined}
                   className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors duration-300 ${
-                    isActive
-                      ? "text-white"
-                      : "text-zinc-500 hover:text-white"
+                    isActive ? "text-white" : "text-zinc-500 hover:text-white"
                   }`}
                 >
                   {isActive && (
@@ -198,20 +174,14 @@ export default function Navbar() {
                     />
                   )}
 
-                  <span className="relative z-10">
-                    {item.label}
-                  </span>
+                  <span className="relative z-10">{item.label}</span>
                 </a>
               );
             })}
 
             <motion.a
               href="#contact"
-              aria-current={
-                isContactActive
-                  ? "location"
-                  : undefined
-              }
+              aria-current={isContactActive ? "location" : undefined}
               whileHover={
                 shouldReduceMotion
                   ? undefined
@@ -233,7 +203,6 @@ export default function Navbar() {
               }`}
             >
               Contact
-
               <ArrowIcon />
             </motion.a>
           </div>
@@ -243,32 +212,24 @@ export default function Navbar() {
             type="button"
             aria-label="Toggle navigation menu"
             aria-expanded={isOpen}
-            onClick={() =>
-              setIsOpen((current) => !current)
-            }
+            onClick={() => setIsOpen((current) => !current)}
             className="relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] transition-colors hover:bg-white/[0.08] lg:hidden"
           >
             <span
               className={`absolute h-px w-5 bg-white transition-all duration-300 ${
-                isOpen
-                  ? "rotate-45"
-                  : "-translate-y-1.5"
+                isOpen ? "rotate-45" : "-translate-y-1.5"
               }`}
             />
 
             <span
               className={`absolute h-px w-5 bg-white transition-all duration-300 ${
-                isOpen
-                  ? "scale-x-0 opacity-0"
-                  : "scale-x-100 opacity-100"
+                isOpen ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
               }`}
             />
 
             <span
               className={`absolute h-px w-5 bg-white transition-all duration-300 ${
-                isOpen
-                  ? "-rotate-45"
-                  : "translate-y-1.5"
+                isOpen ? "-rotate-45" : "translate-y-1.5"
               }`}
             />
           </button>
@@ -291,19 +252,14 @@ export default function Navbar() {
           <div className="rounded-2xl border border-white/10 bg-[#070707]/95 p-3 shadow-2xl backdrop-blur-2xl">
             <div className="flex flex-col">
               {navItems.map((item) => {
-                const isActive =
-                  activeSection === item.id;
+                const isActive = activeSection === item.id;
 
                 return (
                   <a
                     key={item.href}
                     href={item.href}
                     onClick={closeMenu}
-                    aria-current={
-                      isActive
-                        ? "location"
-                        : undefined
-                    }
+                    aria-current={isActive ? "location" : undefined}
                     className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-sm font-medium transition-colors ${
                       isActive
                         ? "bg-white/[0.06] text-white"
@@ -325,11 +281,7 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={closeMenu}
-                aria-current={
-                  isContactActive
-                    ? "location"
-                    : undefined
-                }
+                aria-current={isContactActive ? "location" : undefined}
                 className={`mt-2 flex items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-semibold transition-colors ${
                   isContactActive
                     ? "bg-sky-400 text-black"
@@ -337,7 +289,6 @@ export default function Navbar() {
                 }`}
               >
                 Contact
-
                 <ArrowIcon />
               </a>
             </div>

@@ -2,13 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-export default function useActiveSection(
-  sectionIds: string[],
-  offset = 180,
-) {
-  const [activeSection, setActiveSection] = useState(
-    sectionIds[0] ?? "",
-  );
+export default function useActiveSection(sectionIds: string[], offset = 180) {
+  const [activeSection, setActiveSection] = useState(sectionIds[0] ?? "");
 
   useEffect(() => {
     let frameId: number | null = null;
@@ -16,10 +11,7 @@ export default function useActiveSection(
     const updateActiveSection = () => {
       const sections = sectionIds
         .map((id) => document.getElementById(id))
-        .filter(
-          (section): section is HTMLElement =>
-            section !== null,
-        );
+        .filter((section): section is HTMLElement => section !== null);
 
       if (sections.length === 0) {
         return;
@@ -42,14 +34,11 @@ export default function useActiveSection(
         document.documentElement.scrollHeight - 10;
 
       if (isAtBottom) {
-        currentSection =
-          sections[sections.length - 1].id;
+        currentSection = sections[sections.length - 1].id;
       }
 
       setActiveSection((current) =>
-        current === currentSection
-          ? current
-          : currentSection,
+        current === currentSection ? current : currentSection,
       );
     };
 
@@ -73,15 +62,9 @@ export default function useActiveSection(
     window.addEventListener("resize", handleScroll);
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll,
-      );
+      window.removeEventListener("scroll", handleScroll);
 
-      window.removeEventListener(
-        "resize",
-        handleScroll,
-      );
+      window.removeEventListener("resize", handleScroll);
 
       if (frameId !== null) {
         cancelAnimationFrame(frameId);

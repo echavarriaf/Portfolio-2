@@ -8,11 +8,7 @@ import {
   useReducedMotion,
 } from "motion/react";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 
 type TechMarqueeProps = {
   items: string[];
@@ -27,37 +23,29 @@ export default function TechMarquee({
 }: TechMarqueeProps) {
   const shouldReduceMotion = useReducedMotion();
 
-  const wrapperRef =
-    useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  const trackRef =
-    useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   const x = useMotionValue(0);
 
-  const [trackWidth, setTrackWidth] =
-    useState(0);
+  const [trackWidth, setTrackWidth] = useState(0);
 
-  const [isPaused, setIsPaused] =
-    useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   const isInView = useInView(wrapperRef, {
     margin: "200px 0px",
   });
 
   useEffect(() => {
-    if (
-      shouldReduceMotion ||
-      !trackRef.current
-    ) {
+    if (shouldReduceMotion || !trackRef.current) {
       return;
     }
 
     const track = trackRef.current;
 
     const updateWidth = () => {
-      const width =
-        track.scrollWidth / 2;
+      const width = track.scrollWidth / 2;
 
       setTrackWidth(width);
 
@@ -70,38 +58,26 @@ export default function TechMarquee({
 
     updateWidth();
 
-    const resizeObserver =
-      new ResizeObserver(updateWidth);
+    const resizeObserver = new ResizeObserver(updateWidth);
 
     resizeObserver.observe(track);
 
     return () => {
       resizeObserver.disconnect();
     };
-  }, [
-    direction,
-    shouldReduceMotion,
-    x,
-  ]);
+  }, [direction, shouldReduceMotion, x]);
 
   useAnimationFrame((_, delta) => {
-    if (
-      shouldReduceMotion ||
-      isPaused ||
-      !isInView ||
-      trackWidth === 0
-    ) {
+    if (shouldReduceMotion || isPaused || !isInView || trackWidth === 0) {
       return;
     }
 
-    const distance =
-      (speed * delta) / 1000;
+    const distance = (speed * delta) / 1000;
 
     const currentX = x.get();
 
     if (direction === "left") {
-      let nextX =
-        currentX - distance;
+      let nextX = currentX - distance;
 
       if (nextX <= -trackWidth) {
         nextX += trackWidth;
@@ -112,8 +88,7 @@ export default function TechMarquee({
       return;
     }
 
-    let nextX =
-      currentX + distance;
+    let nextX = currentX + distance;
 
     if (nextX >= 0) {
       nextX -= trackWidth;
@@ -122,26 +97,17 @@ export default function TechMarquee({
     x.set(nextX);
   });
 
-  const visualItems =
-    shouldReduceMotion
-      ? items
-      : [...items, ...items];
+  const visualItems = shouldReduceMotion ? items : [...items, ...items];
 
   return (
     <div
       ref={wrapperRef}
       className="group relative overflow-hidden"
-      onPointerEnter={() =>
-        setIsPaused(true)
-      }
-      onPointerLeave={() =>
-        setIsPaused(false)
-      }
+      onPointerEnter={() => setIsPaused(true)}
+      onPointerLeave={() => setIsPaused(false)}
     >
       {/* Accessible version */}
-      <p className="sr-only">
-        Technologies: {items.join(", ")}
-      </p>
+      <p className="sr-only">Technologies: {items.join(", ")}</p>
 
       {/* Edge fades */}
       <div
@@ -159,26 +125,22 @@ export default function TechMarquee({
         ref={trackRef}
         aria-hidden="true"
         style={{
-          x: shouldReduceMotion
-            ? 0
-            : x,
+          x: shouldReduceMotion ? 0 : x,
         }}
         className="flex w-max gap-3 py-3"
       >
-        {visualItems.map(
-          (technology, index) => (
-            <div
-              key={`${technology}-${index}`}
-              className="flex shrink-0 items-center gap-3 rounded-full border border-white/[0.07] bg-white/[0.025] px-5 py-3 transition-all duration-300 hover:border-sky-400/20 hover:bg-sky-400/[0.05]"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-sky-400/70" />
+        {visualItems.map((technology, index) => (
+          <div
+            key={`${technology}-${index}`}
+            className="flex shrink-0 items-center gap-3 rounded-full border border-white/[0.07] bg-white/[0.025] px-5 py-3 transition-all duration-300 hover:border-sky-400/20 hover:bg-sky-400/[0.05]"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-400/70" />
 
-              <span className="whitespace-nowrap font-mono text-xs text-zinc-500 transition-colors duration-300 group-hover:text-zinc-400">
-                {technology}
-              </span>
-            </div>
-          ),
-        )}
+            <span className="whitespace-nowrap font-mono text-xs text-zinc-500 transition-colors duration-300 group-hover:text-zinc-400">
+              {technology}
+            </span>
+          </div>
+        ))}
       </motion.div>
     </div>
   );

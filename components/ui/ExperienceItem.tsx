@@ -130,15 +130,10 @@ export default function ExperienceItem({
 
           <div className="mt-8 space-y-4">
             {experience.highlights.map((highlight) => (
-              <div
-                key={highlight}
-                className="flex gap-4"
-              >
+              <div key={highlight} className="flex gap-4">
                 <div className="mt-[10px] h-1 w-1 shrink-0 rounded-full bg-sky-400/70" />
 
-                <p className="text-sm leading-6 text-zinc-500">
-                  {highlight}
-                </p>
+                <p className="text-sm leading-6 text-zinc-500">{highlight}</p>
               </div>
             ))}
           </div>

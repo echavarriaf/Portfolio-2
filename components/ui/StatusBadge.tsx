@@ -3,12 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 
-type StatusVariant =
-  | "success"
-  | "info"
-  | "danger"
-  | "warning"
-  | "neutral";
+type StatusVariant = "success" | "info" | "danger" | "warning" | "neutral";
 
 type StatusBadgeProps = {
   children: ReactNode;

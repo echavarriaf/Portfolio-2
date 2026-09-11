@@ -1,26 +1,19 @@
-const explicitSiteUrl =
-  process.env.SITE_URL?.trim();
+const explicitSiteUrl = process.env.SITE_URL?.trim();
 
-const vercelProductionUrl =
-  process.env.VERCEL_PROJECT_PRODUCTION_URL
-    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : undefined;
+const vercelProductionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : undefined;
 
-const fallbackUrl =
-  "http://localhost:3000";
+const fallbackUrl = "http://localhost:3000";
 
-const rawSiteUrl =
-  explicitSiteUrl ||
-  vercelProductionUrl ||
-  fallbackUrl;
+const rawSiteUrl = explicitSiteUrl || vercelProductionUrl || fallbackUrl;
 
 const siteUrl = rawSiteUrl.replace(/\/$/, "");
 
 export const siteConfig = {
   name: "Felix Echavarria",
 
-  title:
-    "Felix Echavarria | Software Engineer · Automation · Data",
+  title: "Felix Echavarria | Software Engineer · Automation · Data",
 
   shortTitle: "Felix Echavarria",
 

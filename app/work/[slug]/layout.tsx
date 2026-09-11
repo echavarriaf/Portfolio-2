@@ -19,18 +19,11 @@ export default async function CaseStudyLayout({
 }: CaseStudyLayoutProps) {
   const { slug } = await params;
 
-  const caseStudy =
-    getCaseStudy(slug);
+  const caseStudy = getCaseStudy(slug);
 
   return (
     <>
-      {caseStudy && (
-        <JsonLd
-          data={getCaseStudyStructuredData(
-            caseStudy,
-          )}
-        />
-      )}
+      {caseStudy && <JsonLd data={getCaseStudyStructuredData(caseStudy)} />}
 
       {children}
     </>

@@ -36,9 +36,7 @@ export default function LoadingScreen({
         <div className="flex items-center text-2xl font-bold tracking-[-0.04em]">
           <span>FE</span>
 
-          <span className="ml-0.5 text-sky-400">
-            .
-          </span>
+          <span className="ml-0.5 text-sky-400">.</span>
         </div>
 
         {/* Loader */}
@@ -55,9 +53,7 @@ export default function LoadingScreen({
           {label}
         </p>
 
-        <p className="mt-4 text-sm leading-6 text-zinc-500">
-          {description}
-        </p>
+        <p className="mt-4 text-sm leading-6 text-zinc-500">{description}</p>
 
         {/* Progress visual */}
         <div
@@ -67,10 +63,7 @@ export default function LoadingScreen({
           <div className="h-full w-1/2 animate-pulse bg-gradient-to-r from-transparent via-sky-400 to-transparent" />
         </div>
 
-        <div
-          aria-hidden="true"
-          className="mt-6 flex items-center gap-2"
-        >
+        <div aria-hidden="true" className="mt-6 flex items-center gap-2">
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-sky-400" />
 
           <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-sky-400/50 [animation-delay:150ms]" />

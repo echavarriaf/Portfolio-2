@@ -44,9 +44,7 @@ export default function Error({
             FE
           </span>
 
-          <span className="ml-0.5 text-sky-400">
-            .
-          </span>
+          <span className="ml-0.5 text-sky-400">.</span>
         </Link>
 
         <div className="mt-16">
@@ -56,10 +54,7 @@ export default function Error({
 
           <h1 className="mt-6 text-[clamp(3rem,10vw,6rem)] font-bold leading-[0.95] tracking-[-0.055em]">
             Something didn&apos;t
-            <span className="text-zinc-500">
-              {" "}
-              compile as planned.
-            </span>
+            <span className="text-zinc-500"> compile as planned.</span>
           </h1>
         </div>
 
@@ -87,25 +82,17 @@ export default function Error({
               <span className="text-zinc-500">{"{"}</span>
             </p>
 
-            <p className="pl-5 text-zinc-500">
-              renderApplication();
-            </p>
+            <p className="pl-5 text-zinc-500">renderApplication();</p>
 
             <p>
               <span className="text-zinc-500">{"}"}</span>{" "}
               <span className="text-purple-400">catch</span>{" "}
-              <span className="text-zinc-500">
-                (error) {"{"}
-              </span>
+              <span className="text-zinc-500">(error) {"{"}</span>
             </p>
 
-            <p className="pl-5 text-red-300/80">
-              recover();
-            </p>
+            <p className="pl-5 text-red-300/80">recover();</p>
 
-            <p className="text-zinc-500">
-              {"}"}
-            </p>
+            <p className="text-zinc-500">{"}"}</p>
 
             {error.digest && (
               <p className="mt-4 border-t border-white/[0.06] pt-4 text-[10px] text-zinc-700">

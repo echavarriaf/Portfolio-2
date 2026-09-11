@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  motion,
-  useReducedMotion,
-} from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 const technologies = [
   "Next.js",
@@ -73,15 +70,10 @@ export default function Hero() {
               }}
               className="max-w-5xl text-[clamp(3rem,11vw,6.5rem)] font-bold leading-[0.94] tracking-[-0.055em]"
             >
-              <span className="block">
-                I build systems
-              </span>
+              <span className="block">I build systems</span>
 
               <span className="block">
-                that turn{" "}
-                <span className="text-zinc-500">
-                  friction
-                </span>
+                that turn <span className="text-zinc-500">friction</span>
               </span>
 
               <span className="block">
@@ -100,9 +92,8 @@ export default function Hero() {
              * client-side entrance animation.
              */}
             <p className="mt-7 max-w-2xl text-[15px] leading-7 text-zinc-400 sm:mt-8 sm:text-lg sm:leading-8">
-              Software Engineer focused on building
-              full-stack applications, automation systems,
-              and data-driven solutions that solve real
+              Software Engineer focused on building full-stack applications,
+              automation systems, and data-driven solutions that solve real
               operational problems.
             </p>
 
@@ -145,7 +136,6 @@ export default function Hero() {
                 className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-sky-400 sm:px-7"
               >
                 View my work
-
                 <svg
                   width="18"
                   height="18"
@@ -269,82 +259,43 @@ export default function Hero() {
 
                 <div className="p-8 font-mono text-sm leading-7">
                   <div>
-                    <span className="text-purple-400">
-                      const
-                    </span>{" "}
-                    <span className="text-sky-300">
-                      problem
-                    </span>{" "}
-                    <span className="text-zinc-500">
-                      =
-                    </span>{" "}
+                    <span className="text-purple-400">const</span>{" "}
+                    <span className="text-sky-300">problem</span>{" "}
+                    <span className="text-zinc-500">=</span>{" "}
                     <span className="text-orange-300">
                       &quot;manual_process&quot;
                     </span>
-                    <span className="text-zinc-500">
-                      ;
-                    </span>
+                    <span className="text-zinc-500">;</span>
                   </div>
 
                   <div className="mt-3">
-                    <span className="text-purple-400">
-                      const
-                    </span>{" "}
-                    <span className="text-sky-300">
-                      solution
-                    </span>{" "}
-                    <span className="text-zinc-500">
-                      =
-                    </span>{" "}
-                    <span className="text-yellow-200">
-                      buildSystem
-                    </span>
-                    <span className="text-zinc-400">
-                      (
-                    </span>
+                    <span className="text-purple-400">const</span>{" "}
+                    <span className="text-sky-300">solution</span>{" "}
+                    <span className="text-zinc-500">=</span>{" "}
+                    <span className="text-yellow-200">buildSystem</span>
+                    <span className="text-zinc-400">(</span>
                   </div>
 
                   <div className="pl-6">
-                    <span className="text-cyan-300">
-                      automation
-                    </span>
-                    ,
+                    <span className="text-cyan-300">automation</span>,
                   </div>
 
                   <div className="pl-6">
-                    <span className="text-cyan-300">
-                      software
-                    </span>
-                    ,
+                    <span className="text-cyan-300">software</span>,
                   </div>
 
                   <div className="pl-6">
-                    <span className="text-cyan-300">
-                      data
-                    </span>
-                    ,
+                    <span className="text-cyan-300">data</span>,
                   </div>
 
-                  <div className="text-zinc-400">
-                    );
-                  </div>
+                  <div className="text-zinc-400">);</div>
 
                   <div className="mt-3">
-                    <span className="text-purple-400">
-                      return
-                    </span>{" "}
-                    <span className="text-yellow-200">
-                      solution
-                    </span>
-                    <span className="text-zinc-500">
-                      .
-                    </span>
-                    <span className="text-sky-300">
-                      createImpact
-                    </span>
-                    <span className="text-zinc-400">
-                      ();
-                    </span>
+                    <span className="text-purple-400">return</span>{" "}
+                    <span className="text-yellow-200">solution</span>
+                    <span className="text-zinc-500">.</span>
+                    <span className="text-sky-300">createImpact</span>
+                    <span className="text-zinc-400">();</span>
                   </div>
                 </div>
 
@@ -372,9 +323,7 @@ export default function Hero() {
                       </span>
                     </div>
 
-                    <span className="font-mono text-xs text-zinc-600">
-                      01
-                    </span>
+                    <span className="font-mono text-xs text-zinc-600">01</span>
                   </div>
                 </div>
               </div>

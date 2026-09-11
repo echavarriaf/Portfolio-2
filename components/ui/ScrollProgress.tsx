@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useSpring,
-} from "motion/react";
+import { motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 
 export default function ScrollProgress() {
   const shouldReduceMotion = useReducedMotion();

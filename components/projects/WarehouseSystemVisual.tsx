@@ -38,9 +38,7 @@ export default function WarehouseSystemVisual() {
                 <div
                   key={item}
                   className={`mx-auto h-2 rounded-full ${
-                    item === 1
-                      ? "w-7 bg-sky-400/50"
-                      : "w-5 bg-white/10"
+                    item === 1 ? "w-7 bg-sky-400/50" : "w-5 bg-white/10"
                   }`}
                 />
               ))}
@@ -82,34 +80,17 @@ export default function WarehouseSystemVisual() {
                   </p>
                 </div>
 
-                <StatusBadge variant="danger">
-                  Faulted
-                </StatusBadge>
+                <StatusBadge variant="danger">Faulted</StatusBadge>
               </div>
 
               <div className="mt-5 space-y-2">
-                <StatusRow
-                  name="Motor Drive"
-                  status="Running"
-                  active
-                />
+                <StatusRow name="Motor Drive" status="Running" active />
 
-                <StatusRow
-                  name="Photo Eye"
-                  status="Blocked"
-                />
+                <StatusRow name="Photo Eye" status="Blocked" />
 
-                <StatusRow
-                  name="Safety Circuit"
-                  status="Ready"
-                  active
-                />
+                <StatusRow name="Safety Circuit" status="Ready" active />
 
-                <StatusRow
-                  name="Conveyor Zone"
-                  status="Fault"
-                  fault
-                />
+                <StatusRow name="Conveyor Zone" status="Fault" fault />
               </div>
             </div>
 
@@ -119,9 +100,7 @@ export default function WarehouseSystemVisual() {
                   Operational signal
                 </p>
 
-                <p className="font-mono text-[9px] text-zinc-700">
-                  realtime
-                </p>
+                <p className="font-mono text-[9px] text-zinc-700">realtime</p>
               </div>
 
               <div className="mt-5 flex h-16 items-end gap-1">
@@ -172,16 +151,12 @@ export default function WarehouseSystemVisual() {
           PLC Tag
         </p>
 
-        <p className="mt-2 font-mono text-xs text-sky-300">
-          Conveyor.Faulted
-        </p>
+        <p className="mt-2 font-mono text-xs text-sky-300">Conveyor.Faulted</p>
 
         <div className="mt-3 flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
 
-          <span className="text-[10px] text-zinc-500">
-            TRUE
-          </span>
+          <span className="text-[10px] text-zinc-500">TRUE</span>
         </div>
       </motion.div>
 
@@ -211,13 +186,9 @@ export default function WarehouseSystemVisual() {
           </div>
 
           <div>
-            <p className="text-xs font-medium text-zinc-300">
-              Auto-generated
-            </p>
+            <p className="text-xs font-medium text-zinc-300">Auto-generated</p>
 
-            <p className="mt-0.5 text-[9px] text-zinc-600">
-              Excel → Power BI
-            </p>
+            <p className="mt-0.5 text-[9px] text-zinc-600">Excel → Power BI</p>
           </div>
         </div>
       </motion.div>

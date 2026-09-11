@@ -93,9 +93,7 @@ export default function NotFound() {
               <span className="text-zinc-500">(route);</span>
             </p>
 
-            <p className="mt-4 text-red-300/80">
-              → RouteNotFound: 404
-            </p>
+            <p className="mt-4 text-red-300/80">→ RouteNotFound: 404</p>
           </div>
         </div>
 
@@ -106,7 +104,6 @@ export default function NotFound() {
             className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black transition-all duration-300 hover:bg-sky-400"
           >
             Back to home
-
             <svg
               width="17"
               height="17"

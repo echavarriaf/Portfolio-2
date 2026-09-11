@@ -95,8 +95,8 @@ export default function About() {
               className="mt-8 max-w-xl text-4xl font-bold leading-[1.05] tracking-[-0.045em] sm:text-5xl lg:text-6xl"
             >
               Engineering solutions where{" "}
-              <span className="text-zinc-500">software meets</span>{" "}
-              the real world.
+              <span className="text-zinc-500">software meets</span> the real
+              world.
             </motion.h2>
           </div>
 
@@ -128,15 +128,14 @@ export default function About() {
             <p className="max-w-2xl text-lg leading-8 text-zinc-400">
               My background spans enterprise systems, full-stack development,
               data engineering, and industrial automation. I focus on finding
-              repetitive or inefficient processes and turning them into
-              reliable software systems.
+              repetitive or inefficient processes and turning them into reliable
+              software systems.
             </p>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-400">
               Today, I work close to real operational environments, combining
-              application development, PLC data, APIs, reporting, and
-              automation to help people make faster decisions with better
-              information.
+              application development, PLC data, APIs, reporting, and automation
+              to help people make faster decisions with better information.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">

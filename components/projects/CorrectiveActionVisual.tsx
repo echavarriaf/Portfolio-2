@@ -103,8 +103,7 @@ export default function CorrectiveActionVisual() {
                         duration: 0.4,
                         delay: shouldReduceMotion
                           ? 0
-                          : columnIndex * 0.08 +
-                            itemIndex * 0.06,
+                          : columnIndex * 0.08 + itemIndex * 0.06,
                       }}
                       className="rounded-lg border border-white/[0.06] bg-black/30 p-3"
                     >
@@ -136,23 +135,11 @@ export default function CorrectiveActionVisual() {
           </div>
 
           <div className="mt-4 grid grid-cols-3 gap-3">
-            <StatCard
-              value="13"
-              label="Total"
-              centered
-            />
+            <StatCard value="13" label="Total" centered />
 
-            <StatCard
-              value="02"
-              label="Active"
-              centered
-            />
+            <StatCard value="02" label="Active" centered />
 
-            <StatCard
-              value="08"
-              label="Closed"
-              centered
-            />
+            <StatCard value="08" label="Closed" centered />
           </div>
         </div>
       </motion.div>
@@ -179,9 +166,7 @@ export default function CorrectiveActionVisual() {
         <div className="mt-2 flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-sky-400" />
 
-          <span className="text-xs text-zinc-300">
-            Owner notified
-          </span>
+          <span className="text-xs text-zinc-300">Owner notified</span>
         </div>
       </motion.div>
     </div>

@@ -40,9 +40,7 @@ export default function BudgetSystemVisual() {
               </h4>
             </div>
 
-            <StatusBadge variant="info">
-              Active
-            </StatusBadge>
+            <StatusBadge variant="info">Active</StatusBadge>
           </div>
 
           <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
@@ -64,29 +62,15 @@ export default function BudgetSystemVisual() {
                   Spending
                 </p>
 
-                <span className="font-mono text-[9px] text-zinc-700">
-                  Q1
-                </span>
+                <span className="font-mono text-[9px] text-zinc-700">Q1</span>
               </div>
 
               <div className="mt-6 space-y-4">
-                <BudgetBar
-                  label="Fixed"
-                  value="72%"
-                  width="72%"
-                />
+                <BudgetBar label="Fixed" value="72%" width="72%" />
 
-                <BudgetBar
-                  label="Variable"
-                  value="46%"
-                  width="46%"
-                />
+                <BudgetBar label="Variable" value="46%" width="46%" />
 
-                <BudgetBar
-                  label="Savings"
-                  value="58%"
-                  width="58%"
-                />
+                <BudgetBar label="Savings" value="58%" width="58%" />
               </div>
             </div>
 
@@ -102,11 +86,7 @@ export default function BudgetSystemVisual() {
                   usage="Other expenses"
                 />
 
-                <CreditCardRow
-                  name="Primary"
-                  amount="$712"
-                  usage="Household"
-                />
+                <CreditCardRow name="Primary" amount="$712" usage="Household" />
               </div>
             </div>
           </div>
@@ -186,9 +166,7 @@ export default function BudgetSystemVisual() {
         <div className="mt-2 flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-emerald-400" />
 
-          <span className="text-xs text-zinc-300">
-            User approved
-          </span>
+          <span className="text-xs text-zinc-300">User approved</span>
         </div>
       </motion.div>
     </div>
@@ -207,13 +185,9 @@ function BudgetBar({
   return (
     <div>
       <div className="flex items-center justify-between">
-        <span className="text-[9px] text-zinc-500">
-          {label}
-        </span>
+        <span className="text-[9px] text-zinc-500">{label}</span>
 
-        <span className="font-mono text-[9px] text-zinc-600">
-          {value}
-        </span>
+        <span className="font-mono text-[9px] text-zinc-600">{value}</span>
       </div>
 
       <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/[0.05]">
@@ -250,18 +224,12 @@ function CreditCardRow({
   return (
     <div className="rounded-lg border border-white/[0.05] bg-black/20 p-3">
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-medium text-zinc-300">
-          {name}
-        </span>
+        <span className="text-[10px] font-medium text-zinc-300">{name}</span>
 
-        <span className="font-mono text-[9px] text-zinc-400">
-          {amount}
-        </span>
+        <span className="font-mono text-[9px] text-zinc-400">{amount}</span>
       </div>
 
-      <p className="mt-1 text-[8px] text-zinc-700">
-        {usage}
-      </p>
+      <p className="mt-1 text-[8px] text-zinc-700">{usage}</p>
     </div>
   );
 }
