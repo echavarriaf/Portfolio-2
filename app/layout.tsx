@@ -12,10 +12,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import SkipLink from "@/components/ui/SkipLink";
 
 import { siteConfig } from "@/data/site";
-import {
-  personStructuredData,
-  websiteStructuredData,
-} from "@/data/structuredData";
+import { globalStructuredData } from "@/data/structuredData";
 
 import "./globals.css";
 
@@ -32,16 +29,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(
+    siteConfig.url,
+  ),
 
   title: {
     default: siteConfig.title,
     template: `%s | ${siteConfig.name}`,
   },
 
-  description: siteConfig.description,
+  description:
+    siteConfig.description,
 
-  keywords: siteConfig.keywords,
+  keywords:
+    siteConfig.keywords,
 
   authors: [
     {
@@ -49,10 +50,14 @@ export const metadata: Metadata = {
     },
   ],
 
-  creator: siteConfig.author.name,
-  publisher: siteConfig.author.name,
+  creator:
+    siteConfig.author.name,
 
-  applicationName: siteConfig.name,
+  publisher:
+    siteConfig.author.name,
+
+  applicationName:
+    siteConfig.name,
 
   alternates: {
     canonical: "/",
@@ -61,24 +66,28 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
 
-    locale: siteConfig.locale,
+    locale:
+      siteConfig.locale,
 
     url: "/",
 
-    siteName: siteConfig.name,
+    siteName:
+      siteConfig.name,
 
-    title: siteConfig.title,
+    title:
+      siteConfig.title,
 
-    description: siteConfig.description,
+    description:
+      siteConfig.description,
 
     images: [
       {
         url: "/opengraph-image",
-
         width: 1200,
         height: 630,
 
-        alt: `${siteConfig.name} Software Engineering Portfolio`,
+        alt:
+          `${siteConfig.name} Software Engineering Portfolio`,
       },
     ],
   },
@@ -86,9 +95,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: siteConfig.title,
+    title:
+      siteConfig.title,
 
-    description: siteConfig.description,
+    description:
+      siteConfig.description,
 
     images: [
       "/opengraph-image",
@@ -103,22 +114,33 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
 
-      "max-image-preview": "large",
-      "max-snippet": -1,
-      "max-video-preview": -1,
+      "max-image-preview":
+        "large",
+
+      "max-snippet":
+        -1,
+
+      "max-video-preview":
+        -1,
     },
   },
 
-  category: "technology",
+  category:
+    "technology",
 };
 
 export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
+  width:
+    "device-width",
 
-  themeColor: "#050505",
+  initialScale:
+    1,
 
-  colorScheme: "dark",
+  themeColor:
+    "#050505",
+
+  colorScheme:
+    "dark",
 };
 
 export default function RootLayout({
@@ -132,11 +154,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <JsonLd
-          data={personStructuredData}
-        />
-
-        <JsonLd
-          data={websiteStructuredData}
+          data={
+            globalStructuredData
+          }
         />
 
         <SkipLink />

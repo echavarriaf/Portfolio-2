@@ -1,8 +1,23 @@
 import { contact } from "@/data/contact";
 import { siteConfig } from "@/data/site";
 
-function isRealUrl(value?: string) {
+const personId =
+  `${siteConfig.url}/#person`;
+
+const websiteId =
+  `${siteConfig.url}/#website`;
+
+function isValidPublicUrl(
+  value?: string,
+): value is string {
   if (!value) {
+    return false;
+  }
+
+  if (
+    value.includes("YOUR_") ||
+    value.includes("example.com")
+  ) {
     return false;
   }
 
@@ -15,64 +30,69 @@ function isRealUrl(value?: string) {
 const sameAs = [
   contact.github,
   contact.linkedin,
-].filter(
-  (url): url is string =>
-    typeof url === "string" &&
-    isRealUrl(url),
-);
+].filter(isValidPublicUrl);
 
-export const personStructuredData = {
+export const globalStructuredData = {
   "@context": "https://schema.org",
-  "@type": "Person",
 
-  name: siteConfig.name,
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": personId,
 
-  url: siteConfig.url,
+      name: siteConfig.name,
 
-  jobTitle: "Software Engineer",
+      url: siteConfig.url,
 
-  description:
-    "Software Engineer specializing in full-stack development, automation systems, data engineering, and software solutions that improve real-world operational processes.",
+      jobTitle: "Software Engineer",
 
-  knowsAbout: [
-    "Software Engineering",
-    "Full-Stack Development",
-    "Automation Systems",
-    "Data Engineering",
-    "Next.js",
-    "React",
-    "TypeScript",
-    "JavaScript",
-    "Python",
-    "Node.js",
-    "FastAPI",
-    "SQL",
-    "Power BI",
-    "PLC Data",
+      description:
+        siteConfig.description,
+
+      knowsAbout: [
+        "Software Engineering",
+        "Full-Stack Development",
+        "Automation Systems",
+        "Data Engineering",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Python",
+        "Node.js",
+        "FastAPI",
+        "SQL",
+        "Power BI",
+        "PLC Data",
+      ],
+
+      ...(sameAs.length > 0
+        ? {
+            sameAs,
+          }
+        : {}),
+    },
+
+    {
+      "@type": "WebSite",
+      "@id": websiteId,
+
+      url: siteConfig.url,
+
+      name: siteConfig.name,
+
+      description:
+        siteConfig.description,
+
+      inLanguage: "en-US",
+
+      publisher: {
+        "@id": personId,
+      },
+
+      author: {
+        "@id": personId,
+      },
+    },
   ],
-
-  ...(sameAs.length > 0
-    ? {
-        sameAs,
-      }
-    : {}),
-};
-
-export const websiteStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-
-  name: siteConfig.name,
-
-  url: siteConfig.url,
-
-  description: siteConfig.description,
-
-  inLanguage: "en-US",
-
-  publisher: {
-    "@type": "Person",
-    name: siteConfig.name,
-    url: siteConfig.url,
-  },
 };
