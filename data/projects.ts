@@ -17,6 +17,7 @@ export type Project = {
   technologies: string[];
   metrics: ProjectMetric[];
   visual: ProjectVisual;
+  slug: string;
 };
 
 export const projects: Project[] = [
@@ -45,11 +46,12 @@ export const projects: Project[] = [
       },
     ],
     visual: "warehouse",
+    slug: "warehouse-automation",
   },
   {
     number: "02",
     category: "Full-Stack · FinTech",
-    title: "Presupuesto Felo",
+    title: "Presupuesto",
     description:
       "A multi-user personal finance platform designed around real household cash flow, biweekly budgeting, fixed commitments, credit cards, access control, and automated alerts.",
     technologies: [
@@ -71,6 +73,7 @@ export const projects: Project[] = [
       },
     ],
     visual: "budget",
+    slug: "presupuesto-felo",
   },
   {
     number: "03",
@@ -95,6 +98,7 @@ export const projects: Project[] = [
       },
     ],
     visual: "corrective-action",
+    slug: "corrective-action-system",
   },
   {
     number: "04",
@@ -121,5 +125,6 @@ export const projects: Project[] = [
       },
     ],
     visual: "machine-learning",
+    slug: "applied-ml-services",
   },
 ];

@@ -1,12 +1,17 @@
 "use client";
 
 import type { ComponentType } from "react";
-import { motion, useReducedMotion } from "motion/react";
+
+import {
+  motion,
+  useReducedMotion,
+} from "motion/react";
 
 import BudgetSystemVisual from "@/components/projects/BudgetSystemVisual";
 import CorrectiveActionVisual from "@/components/projects/CorrectiveActionVisual";
 import MLSystemVisual from "@/components/projects/MLSystemVisual";
 import WarehouseSystemVisual from "@/components/projects/WarehouseSystemVisual";
+
 import ProjectCard from "@/components/ui/ProjectCard";
 
 import {
@@ -14,7 +19,10 @@ import {
   type ProjectVisual,
 } from "@/data/projects";
 
-const projectVisuals: Record<ProjectVisual, ComponentType> = {
+const projectVisuals: Record<
+  ProjectVisual,
+  ComponentType
+> = {
   warehouse: WarehouseSystemVisual,
   budget: BudgetSystemVisual,
   "corrective-action": CorrectiveActionVisual,
@@ -67,6 +75,7 @@ export default function SelectedWork() {
             <h2 className="mt-8 text-4xl font-bold tracking-[-0.05em] sm:text-5xl lg:text-6xl">
               Built around
               <br />
+
               <span className="text-zinc-500">
                 real problems.
               </span>
@@ -104,7 +113,8 @@ export default function SelectedWork() {
 
         <div className="mt-20 space-y-10 lg:mt-28 lg:space-y-14">
           {projects.map((project) => {
-            const Visual = projectVisuals[project.visual];
+            const Visual =
+              projectVisuals[project.visual];
 
             return (
               <ProjectCard
@@ -115,6 +125,7 @@ export default function SelectedWork() {
                 description={project.description}
                 technologies={project.technologies}
                 metrics={project.metrics}
+                href={`/work/${project.slug}`}
               >
                 <Visual />
               </ProjectCard>

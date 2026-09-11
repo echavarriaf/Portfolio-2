@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import {
   motion,
   useMotionValue,
@@ -26,6 +28,7 @@ type ProjectCardProps = {
   technologies: string[];
   metrics: ProjectMetric[];
   children: ReactNode;
+  href?: string;
 };
 
 export default function ProjectCard({
@@ -36,6 +39,7 @@ export default function ProjectCard({
   technologies,
   metrics,
   children,
+  href,
 }: ProjectCardProps) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -164,7 +168,6 @@ export default function ProjectCard({
           )}
 
           <div className="relative z-10 grid xl:grid-cols-[0.9fr_1.1fr]">
-            {/* Information */}
             <div className="flex flex-col border-b border-white/[0.07] p-5 sm:p-7 md:p-9 xl:border-b-0 xl:border-r xl:p-10 2xl:p-12">
               <div className="flex items-start justify-between gap-4">
                 <p className="max-w-[80%] text-[10px] font-semibold uppercase leading-5 tracking-[0.2em] text-sky-400 sm:text-xs sm:tracking-[0.25em]">
@@ -212,10 +215,37 @@ export default function ProjectCard({
                     </span>
                   ))}
                 </div>
+
+                {href && (
+                  <div className="mt-8">
+                    <Link
+                      href={href}
+                      className="group/link inline-flex items-center gap-3 text-sm font-semibold text-white"
+                    >
+                      View case study
+
+                      <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                        className="transition-transform duration-300 group-hover/link:translate-x-1"
+                      >
+                        <path
+                          d="M5 12H19M19 12L13 6M19 12L13 18"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
 
-            {/* Visual */}
             <div className="relative min-h-[430px] overflow-hidden p-3 min-[430px]:p-5 sm:min-h-[500px] sm:p-7 md:p-8 xl:min-h-[620px] xl:p-10">
               <div
                 aria-hidden="true"
