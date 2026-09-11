@@ -1,22 +1,29 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import {
+  motion,
+  useReducedMotion,
+} from "motion/react";
 
 import { contact } from "@/data/contact";
 
 export default function Contact() {
   const shouldReduceMotion = useReducedMotion();
 
-  const hasEmail = !contact.email.startsWith("YOUR_");
-  const hasGithub = !contact.github.startsWith("YOUR_");
-  const hasLinkedin = !contact.linkedin.startsWith("YOUR_");
+  const hasEmail =
+    !contact.email.startsWith("YOUR_");
+
+  const hasGithub =
+    !contact.github.startsWith("YOUR_");
+
+  const hasLinkedin =
+    !contact.linkedin.startsWith("YOUR_");
 
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-white/[0.06] px-6 py-28 sm:py-36 lg:px-8 lg:py-40"
+      className="relative overflow-hidden border-t border-white/[0.06] px-5 py-24 sm:px-6 sm:py-32 lg:px-8 lg:py-40"
     >
-      {/* Background glow */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -25,7 +32,6 @@ export default function Contact() {
       </div>
 
       <div className="relative mx-auto max-w-7xl">
-        {/* Section label */}
         <motion.div
           initial={
             shouldReduceMotion
@@ -60,8 +66,7 @@ export default function Contact() {
           </span>
         </motion.div>
 
-        {/* Main message */}
-        <div className="mt-16 grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+        <div className="mt-12 grid gap-12 sm:mt-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
           <motion.div
             initial={
               shouldReduceMotion
@@ -83,24 +88,26 @@ export default function Contact() {
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
             }}
+            className="min-w-0"
           >
             <p className="mb-5 text-sm font-medium text-zinc-500">
               Have a problem worth solving?
             </p>
 
-            <h2 className="max-w-5xl text-5xl font-bold leading-[0.95] tracking-[-0.055em] sm:text-6xl md:text-7xl lg:text-[5.5rem]">
-              Let&apos;s build
-              <br />
+            <h2 className="max-w-5xl text-[clamp(3rem,11vw,5.5rem)] font-bold leading-[0.95] tracking-[-0.055em]">
+              <span className="block">
+                Let&apos;s build
+              </span>
 
-              <span className="text-zinc-500">
+              <span className="block text-zinc-500">
                 something that
               </span>
 
-              <br />
-
-              makes an{" "}
-              <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-                impact.
+              <span className="block">
+                makes an{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                  impact.
+                </span>
               </span>
             </h2>
           </motion.div>
@@ -151,14 +158,14 @@ export default function Contact() {
                           scale: 0.97,
                         }
                   }
-                  className="group inline-flex items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition-colors duration-300 hover:bg-sky-400"
+                  className="group inline-flex min-h-12 w-full items-center justify-center gap-4 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition-colors duration-300 hover:bg-sky-400 min-[430px]:w-auto sm:px-7 sm:py-4"
                 >
                   Start a conversation
 
                   <ArrowUpRightIcon />
                 </motion.a>
               ) : (
-                <div className="inline-flex rounded-full border border-dashed border-white/15 px-6 py-3.5 font-mono text-xs text-zinc-600">
+                <div className="inline-flex max-w-full rounded-full border border-dashed border-white/15 px-5 py-3 font-mono text-[10px] text-zinc-600 sm:px-6 sm:text-xs">
                   Add your email in data/contact.ts
                 </div>
               )}
@@ -166,7 +173,6 @@ export default function Contact() {
           </motion.div>
         </div>
 
-        {/* Contact links */}
         <motion.div
           initial={
             shouldReduceMotion
@@ -182,13 +188,13 @@ export default function Contact() {
           }}
           viewport={{
             once: true,
-            amount: 0.3,
+            amount: 0.2,
           }}
           transition={{
             duration: 0.8,
             delay: shouldReduceMotion ? 0 : 0.15,
           }}
-          className="mt-24 grid gap-px overflow-hidden rounded-[2rem] border border-white/[0.07] bg-white/[0.07] md:grid-cols-3 lg:mt-32"
+          className="mt-20 grid gap-px overflow-hidden rounded-2xl border border-white/[0.07] bg-white/[0.07] sm:rounded-[2rem] md:grid-cols-3 lg:mt-32"
         >
           <ContactLink
             label="Email"
@@ -230,7 +236,6 @@ export default function Contact() {
           />
         </motion.div>
 
-        {/* Availability strip */}
         <motion.div
           initial={
             shouldReduceMotion
@@ -248,7 +253,7 @@ export default function Contact() {
           transition={{
             duration: 1,
           }}
-          className="mt-10 flex flex-col gap-5 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+          className="mt-8 flex flex-col gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-5 py-5 sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:px-6"
         >
           <div className="flex items-center gap-3">
             <motion.span
@@ -264,7 +269,7 @@ export default function Contact() {
                 duration: 2,
                 repeat: Infinity,
               }}
-              className="h-2 w-2 rounded-full bg-emerald-400"
+              className="h-2 w-2 shrink-0 rounded-full bg-emerald-400"
             />
 
             <p className="text-sm text-zinc-400">
@@ -294,7 +299,7 @@ function ContactLink({
 }) {
   const content = (
     <>
-      <div>
+      <div className="min-w-0">
         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-600">
           {label}
         </p>
@@ -317,7 +322,7 @@ function ContactLink({
   );
 
   const className =
-    "group flex min-h-[150px] items-center justify-between gap-6 bg-[#070707] p-7 transition-colors duration-300 hover:bg-white/[0.025] sm:p-8";
+    "group flex min-h-[125px] items-center justify-between gap-5 bg-[#070707] p-5 transition-colors duration-300 hover:bg-white/[0.025] sm:min-h-[150px] sm:p-8";
 
   if (!href) {
     return (

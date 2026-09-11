@@ -9,10 +9,13 @@ import Hero from "@/components/sections/Hero";
 import SelectedWork from "@/components/sections/SelectedWork";
 
 import InteractiveBackground from "@/components/ui/InteractiveBackground";
+import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export default function Home() {
   return (
     <>
+      <ScrollProgress />
+
       <InteractiveBackground />
 
       <Navbar />

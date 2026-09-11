@@ -7,7 +7,11 @@ import {
   useSpring,
   useTransform,
 } from "motion/react";
-import type { MouseEvent, ReactNode } from "react";
+
+import type {
+  MouseEvent,
+  ReactNode,
+} from "react";
 
 type ProjectMetric = {
   label: string;
@@ -38,8 +42,17 @@ export default function ProjectCard({
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const rotateX = useTransform(mouseY, [-0.5, 0.5], [5, -5]);
-  const rotateY = useTransform(mouseX, [-0.5, 0.5], [-5, 5]);
+  const rotateX = useTransform(
+    mouseY,
+    [-0.5, 0.5],
+    [4, -4],
+  );
+
+  const rotateY = useTransform(
+    mouseX,
+    [-0.5, 0.5],
+    [-4, 4],
+  );
 
   const smoothRotateX = useSpring(rotateX, {
     stiffness: 180,
@@ -51,18 +64,43 @@ export default function ProjectCard({
     damping: 24,
   });
 
-  const glowX = useTransform(mouseX, [-0.5, 0.5], ["20%", "80%"]);
-  const glowY = useTransform(mouseY, [-0.5, 0.5], ["20%", "80%"]);
+  const glowX = useTransform(
+    mouseX,
+    [-0.5, 0.5],
+    ["20%", "80%"],
+  );
 
-  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+  const glowY = useTransform(
+    mouseY,
+    [-0.5, 0.5],
+    ["20%", "80%"],
+  );
+
+  const handleMouseMove = (
+    event: MouseEvent<HTMLDivElement>,
+  ) => {
     if (shouldReduceMotion) {
       return;
     }
 
-    const rect = event.currentTarget.getBoundingClientRect();
+    if (
+      window.matchMedia("(hover: none)").matches
+    ) {
+      return;
+    }
 
-    const x = (event.clientX - rect.left) / rect.width - 0.5;
-    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    const rect =
+      event.currentTarget.getBoundingClientRect();
+
+    const x =
+      (event.clientX - rect.left) /
+        rect.width -
+      0.5;
+
+    const y =
+      (event.clientY - rect.top) /
+        rect.height -
+      0.5;
 
     mouseX.set(x);
     mouseY.set(y);
@@ -80,7 +118,7 @@ export default function ProjectCard({
           ? false
           : {
               opacity: 0,
-              y: 50,
+              y: 40,
             }
       }
       whileInView={{
@@ -89,7 +127,7 @@ export default function ProjectCard({
       }}
       viewport={{
         once: true,
-        amount: 0.15,
+        amount: 0.08,
       }}
       transition={{
         duration: 0.8,
@@ -110,9 +148,9 @@ export default function ProjectCard({
                   rotateX: smoothRotateX,
                   rotateY: smoothRotateY,
                   transformStyle: "preserve-3d",
-              }
+                }
           }
-          className="relative overflow-hidden rounded-[2rem] border border-white/[0.08] bg-[#090909]/80 shadow-2xl shadow-black/30 backdrop-blur-xl"
+          className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#090909]/80 shadow-2xl shadow-black/30 backdrop-blur-xl sm:rounded-[2rem]"
         >
           {!shouldReduceMotion && (
             <motion.div
@@ -121,38 +159,38 @@ export default function ProjectCard({
                 left: glowX,
                 top: glowY,
               }}
-              className="pointer-events-none absolute h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-400/[0.06] blur-[100px]"
+              className="pointer-events-none absolute hidden h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-400/[0.06] blur-[100px] md:block"
             />
           )}
 
-          <div className="relative z-10 grid lg:grid-cols-[0.9fr_1.1fr]">
-            {/* Project information */}
-            <div className="flex flex-col border-b border-white/[0.07] p-7 sm:p-9 lg:border-b-0 lg:border-r lg:p-10 xl:p-12">
-              <div className="flex items-center justify-between gap-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-400">
+          <div className="relative z-10 grid xl:grid-cols-[0.9fr_1.1fr]">
+            {/* Information */}
+            <div className="flex flex-col border-b border-white/[0.07] p-5 sm:p-7 md:p-9 xl:border-b-0 xl:border-r xl:p-10 2xl:p-12">
+              <div className="flex items-start justify-between gap-4">
+                <p className="max-w-[80%] text-[10px] font-semibold uppercase leading-5 tracking-[0.2em] text-sky-400 sm:text-xs sm:tracking-[0.25em]">
                   {category}
                 </p>
 
-                <span className="font-mono text-sm text-zinc-700">
+                <span className="shrink-0 font-mono text-xs text-zinc-700 sm:text-sm">
                   {number}
                 </span>
               </div>
 
-              <h3 className="mt-8 max-w-xl text-3xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-4xl xl:text-5xl">
+              <h3 className="mt-7 max-w-xl text-[clamp(1.8rem,7vw,3rem)] font-bold leading-[1.05] tracking-[-0.04em] text-white sm:mt-8">
                 {title}
               </h3>
 
-              <p className="mt-6 max-w-xl text-base leading-7 text-zinc-400">
+              <p className="mt-5 max-w-xl text-sm leading-7 text-zinc-400 sm:mt-6 sm:text-base">
                 {description}
               </p>
 
-              <div className="mt-9 grid grid-cols-2 gap-3">
+              <div className="mt-7 grid gap-3 min-[430px]:grid-cols-2 sm:mt-9">
                 {metrics.map((metric) => (
                   <div
                     key={metric.label}
-                    className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-4"
+                    className="min-w-0 rounded-2xl border border-white/[0.07] bg-white/[0.025] p-4"
                   >
-                    <p className="text-xl font-semibold tracking-[-0.03em] text-white sm:text-2xl">
+                    <p className="break-words text-lg font-semibold tracking-[-0.03em] text-white sm:text-xl xl:text-2xl">
                       {metric.value}
                     </p>
 
@@ -163,12 +201,12 @@ export default function ProjectCard({
                 ))}
               </div>
 
-              <div className="mt-auto pt-10">
+              <div className="mt-8 xl:mt-auto xl:pt-10">
                 <div className="flex flex-wrap gap-2">
                   {technologies.map((technology) => (
                     <span
                       key={technology}
-                      className="rounded-full border border-white/[0.07] bg-white/[0.025] px-3 py-1.5 font-mono text-[11px] text-zinc-500 transition-colors duration-300 group-hover:text-zinc-300"
+                      className="rounded-full border border-white/[0.07] bg-white/[0.025] px-3 py-1.5 font-mono text-[10px] text-zinc-500 transition-colors duration-300 group-hover:text-zinc-300 sm:text-[11px]"
                     >
                       {technology}
                     </span>
@@ -177,8 +215,8 @@ export default function ProjectCard({
               </div>
             </div>
 
-            {/* Project visual */}
-            <div className="relative min-h-[460px] overflow-hidden p-5 sm:p-8 lg:min-h-[620px] lg:p-10">
+            {/* Visual */}
+            <div className="relative min-h-[430px] overflow-hidden p-3 min-[430px]:p-5 sm:min-h-[500px] sm:p-7 md:p-8 xl:min-h-[620px] xl:p-10">
               <div
                 aria-hidden="true"
                 className="absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(56,189,248,0.07),transparent_35%)]"
@@ -189,7 +227,7 @@ export default function ProjectCard({
                   transform:
                     shouldReduceMotion
                       ? undefined
-                      : "translateZ(45px)",
+                      : "translateZ(35px)",
                 }}
                 className="relative h-full"
               >

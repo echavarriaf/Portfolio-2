@@ -1,6 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import {
+  motion,
+  useReducedMotion,
+} from "motion/react";
 
 const technologies = [
   "Next.js",
@@ -18,12 +21,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden px-6 pb-16 pt-32 lg:px-8"
+      className="relative flex min-h-screen min-h-[100svh] items-center overflow-hidden px-5 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 xl:pt-36"
     >
       <div className="relative z-10 mx-auto w-full max-w-7xl">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="grid items-center gap-14 xl:grid-cols-[1.15fr_0.85fr] xl:gap-12 2xl:gap-20">
           {/* Left */}
-          <div>
+          <div className="min-w-0">
             <motion.div
               initial={
                 shouldReduceMotion
@@ -41,11 +44,11 @@ export default function Hero() {
                 duration: 0.7,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mb-7 flex items-center gap-3"
+              className="mb-6 flex items-center gap-3 sm:mb-7"
             >
-              <span className="h-px w-10 bg-sky-400" />
+              <span className="h-px w-7 bg-sky-400 sm:w-10" />
 
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-400 sm:text-sm">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-sky-400 sm:text-xs sm:tracking-[0.28em]">
                 Software · Automation · Data
               </p>
             </motion.div>
@@ -68,21 +71,24 @@ export default function Hero() {
                 delay: shouldReduceMotion ? 0 : 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="max-w-5xl text-5xl font-bold leading-[0.95] tracking-[-0.055em] sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem]"
+              className="max-w-5xl text-[clamp(3rem,11vw,6.5rem)] font-bold leading-[0.94] tracking-[-0.055em]"
             >
-              I build systems
-              <br />
+              <span className="block">
+                I build systems
+              </span>
 
-              <span>that turn </span>
+              <span className="block">
+                that turn{" "}
+                <span className="text-zinc-500">
+                  friction
+                </span>
+              </span>
 
-              <span className="text-zinc-500">friction</span>
-
-              <br />
-
-              <span>into </span>
-
-              <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-                flow.
+              <span className="block">
+                into{" "}
+                <span className="bg-gradient-to-r from-sky-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
+                  flow.
+                </span>
               </span>
             </motion.h1>
 
@@ -104,10 +110,11 @@ export default function Hero() {
                 delay: shouldReduceMotion ? 0 : 0.2,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mt-8 max-w-2xl text-base leading-8 text-zinc-400 sm:text-lg"
+              className="mt-7 max-w-2xl text-[15px] leading-7 text-zinc-400 sm:mt-8 sm:text-lg sm:leading-8"
             >
-              Software Engineer focused on building full-stack applications,
-              automation systems, and data-driven solutions that solve real
+              Software Engineer focused on building
+              full-stack applications, automation systems,
+              and data-driven solutions that solve real
               operational problems.
             </motion.p>
 
@@ -129,7 +136,7 @@ export default function Hero() {
                 delay: shouldReduceMotion ? 0 : 0.3,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="mt-10 flex flex-col gap-4 sm:flex-row"
+              className="mt-8 flex flex-col gap-3 min-[430px]:flex-row sm:mt-10 sm:gap-4"
             >
               <motion.a
                 href="#work"
@@ -147,7 +154,7 @@ export default function Hero() {
                         scale: 0.98,
                       }
                 }
-                className="group inline-flex items-center justify-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-sky-400"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-sky-400 sm:px-7"
               >
                 View my work
 
@@ -185,7 +192,7 @@ export default function Hero() {
                         scale: 0.98,
                       }
                 }
-                className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-white/20 hover:bg-white/[0.07]"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] px-6 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-white/20 hover:bg-white/[0.07] sm:px-7"
               >
                 Let&apos;s talk
               </motion.a>
@@ -206,12 +213,12 @@ export default function Hero() {
                 duration: 1,
                 delay: shouldReduceMotion ? 0 : 0.5,
               }}
-              className="mt-14 flex max-w-2xl flex-wrap gap-x-6 gap-y-3"
+              className="mt-10 flex max-w-2xl flex-wrap gap-x-5 gap-y-3 sm:mt-14 sm:gap-x-6"
             >
               {technologies.map((technology) => (
                 <span
                   key={technology}
-                  className="text-xs font-medium uppercase tracking-[0.16em] text-zinc-600 transition-colors duration-300 hover:text-zinc-300"
+                  className="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-600 transition-colors duration-300 hover:text-zinc-300 sm:text-xs sm:tracking-[0.16em]"
                 >
                   {technology}
                 </span>
@@ -219,7 +226,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right */}
+          {/* Right visual */}
           <motion.div
             initial={
               shouldReduceMotion
@@ -240,7 +247,7 @@ export default function Hero() {
               delay: shouldReduceMotion ? 0 : 0.35,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="relative mx-auto hidden w-full max-w-xl lg:block"
+            className="relative mx-auto hidden w-full max-w-xl xl:block"
           >
             <motion.div
               animate={
@@ -272,45 +279,84 @@ export default function Hero() {
                   </span>
                 </div>
 
-                <div className="p-6 font-mono text-sm leading-7 sm:p-8">
+                <div className="p-8 font-mono text-sm leading-7">
                   <div>
-                    <span className="text-purple-400">const</span>{" "}
-                    <span className="text-sky-300">problem</span>{" "}
-                    <span className="text-zinc-500">=</span>{" "}
+                    <span className="text-purple-400">
+                      const
+                    </span>{" "}
+                    <span className="text-sky-300">
+                      problem
+                    </span>{" "}
+                    <span className="text-zinc-500">
+                      =
+                    </span>{" "}
                     <span className="text-orange-300">
                       &quot;manual_process&quot;
                     </span>
-                    <span className="text-zinc-500">;</span>
+                    <span className="text-zinc-500">
+                      ;
+                    </span>
                   </div>
 
                   <div className="mt-3">
-                    <span className="text-purple-400">const</span>{" "}
-                    <span className="text-sky-300">solution</span>{" "}
-                    <span className="text-zinc-500">=</span>{" "}
-                    <span className="text-yellow-200">buildSystem</span>
-                    <span className="text-zinc-400">(</span>
+                    <span className="text-purple-400">
+                      const
+                    </span>{" "}
+                    <span className="text-sky-300">
+                      solution
+                    </span>{" "}
+                    <span className="text-zinc-500">
+                      =
+                    </span>{" "}
+                    <span className="text-yellow-200">
+                      buildSystem
+                    </span>
+                    <span className="text-zinc-400">
+                      (
+                    </span>
                   </div>
 
                   <div className="pl-6">
-                    <span className="text-cyan-300">automation</span>,
+                    <span className="text-cyan-300">
+                      automation
+                    </span>
+                    ,
                   </div>
 
                   <div className="pl-6">
-                    <span className="text-cyan-300">software</span>,
+                    <span className="text-cyan-300">
+                      software
+                    </span>
+                    ,
                   </div>
 
                   <div className="pl-6">
-                    <span className="text-cyan-300">data</span>,
+                    <span className="text-cyan-300">
+                      data
+                    </span>
+                    ,
                   </div>
 
-                  <div className="text-zinc-400">);</div>
+                  <div className="text-zinc-400">
+                    );
+                  </div>
 
                   <div className="mt-3">
-                    <span className="text-purple-400">return</span>{" "}
-                    <span className="text-yellow-200">solution</span>
-                    <span className="text-zinc-500">.</span>
-                    <span className="text-sky-300">createImpact</span>
-                    <span className="text-zinc-400">();</span>
+                    <span className="text-purple-400">
+                      return
+                    </span>{" "}
+                    <span className="text-yellow-200">
+                      solution
+                    </span>
+                    <span className="text-zinc-500">
+                      .
+                    </span>
+                    <span className="text-sky-300">
+                      createImpact
+                    </span>
+                    <span className="text-zinc-400">
+                      ();
+                    </span>
                   </div>
                 </div>
 
@@ -360,7 +406,7 @@ export default function Hero() {
                 ease: "easeInOut",
                 delay: 1,
               }}
-              className="absolute -bottom-10 -left-12 rounded-2xl border border-white/10 bg-black/70 px-5 py-4 shadow-xl backdrop-blur-xl"
+              className="absolute -bottom-10 -left-8 rounded-2xl border border-white/10 bg-black/70 px-5 py-4 shadow-xl backdrop-blur-xl"
             >
               <p className="text-xs uppercase tracking-[0.2em] text-zinc-600">
                 Focus
@@ -386,7 +432,7 @@ export default function Hero() {
             delay: 1.2,
             duration: 1,
           }}
-          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 md:flex"
+          className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 lg:flex xl:bottom-8"
         >
           <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-600">
             Scroll
