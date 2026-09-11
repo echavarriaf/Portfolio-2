@@ -212,10 +212,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           title={caseStudy.sectionTitles.architecture}
           wide
         >
-          <ArchitectureFlow
-            steps={caseStudy.architecture}
-            stageLabels={caseStudy.architectureStageLabels}
-          />
+          <ArchitectureFlow steps={caseStudy.architecture} />
         </CaseSection>
 
         {/* Impact */}

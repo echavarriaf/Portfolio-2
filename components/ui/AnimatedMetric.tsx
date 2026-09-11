@@ -25,7 +25,14 @@ export default function AnimatedMetric({
 
   const animationFrameRef = useRef<number | null>(null);
 
-  const [displayValue, setDisplayValue] = useState(0);
+  /*
+   * Start with the real value.
+   *
+   * This ensures that server-rendered HTML, crawlers,
+   * and the initial hydrated markup contain meaningful
+   * content instead of a temporary zero.
+   */
+  const [displayValue, setDisplayValue] = useState(value);
 
   const isInView = useInView(containerRef, {
     once: true,
@@ -105,11 +112,20 @@ export default function AnimatedMetric({
       />
 
       <div className="relative">
-        <p className="text-4xl font-bold tracking-[-0.05em] text-white sm:text-5xl">
+        <p
+          aria-hidden="true"
+          className="text-4xl font-bold tracking-[-0.05em] text-white sm:text-5xl"
+        >
           {prefix}
           {visibleValue}
           {suffix}
         </p>
+
+        <span className="sr-only">
+          {prefix}
+          {value}
+          {suffix}
+        </span>
 
         <p className="mt-4 text-sm font-medium text-zinc-300">{label}</p>
 

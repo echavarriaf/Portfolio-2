@@ -5,17 +5,14 @@ import { Fragment } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 import type { ArchitectureStep } from "@/data/caseStudies";
+
 import ArchitectureIcon from "../ui/icons/ArchitectureIcon";
 
 type ArchitectureFlowProps = {
   steps: ArchitectureStep[];
-  stageLabels?: string[];
 };
 
-export default function ArchitectureFlow({
-  steps,
-  stageLabels = [],
-}: ArchitectureFlowProps) {
+export default function ArchitectureFlow({ steps }: ArchitectureFlowProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -27,7 +24,6 @@ export default function ArchitectureFlow({
             <ArchitectureNode
               step={step}
               index={index}
-              stageLabel={stageLabels[index]}
               shouldReduceMotion={shouldReduceMotion}
             />
 
@@ -48,7 +44,6 @@ export default function ArchitectureFlow({
             <ArchitectureNode
               step={step}
               index={index}
-              stageLabel={stageLabels[index]}
               shouldReduceMotion={shouldReduceMotion}
             />
 
@@ -68,12 +63,10 @@ export default function ArchitectureFlow({
 function ArchitectureNode({
   step,
   index,
-  stageLabel,
   shouldReduceMotion,
 }: {
   step: ArchitectureStep;
   index: number;
-  stageLabel?: string;
   shouldReduceMotion: boolean | null;
 }) {
   return (
@@ -110,21 +103,18 @@ function ArchitectureNode({
       }
       className="group relative flex min-h-[270px] min-w-0 flex-1 flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#080808] p-6 transition-colors duration-300 hover:border-sky-400/20 sm:p-7 xl:p-6 2xl:p-7"
     >
-      {/* Glow */}
       <div className="pointer-events-none absolute right-0 top-0 h-40 w-40 translate-x-1/3 -translate-y-1/3 rounded-full bg-sky-400/[0.00] blur-[70px] transition-colors duration-500 group-hover:bg-sky-400/[0.08]" />
 
       <div className="relative z-10 flex h-full flex-col">
         <div className="flex items-center justify-between gap-4">
           <span className="font-mono text-xs text-sky-400">{step.number}</span>
 
-          {stageLabel && (
-            <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-zinc-700 2xl:text-[9px]">
-              {stageLabel}
-            </span>
-          )}
+          <span className="font-mono text-[8px] uppercase tracking-[0.18em] text-zinc-700 2xl:text-[9px]">
+            {step.stageLabel}
+          </span>
         </div>
 
-        <ArchitectureIcon index={index} />
+        <ArchitectureIcon stageLabel={step.stageLabel} />
 
         <h3 className="mt-7 text-xl font-semibold leading-tight tracking-[-0.035em] text-white">
           {step.title}
@@ -135,7 +125,11 @@ function ArchitectureNode({
         </p>
 
         <div className="mt-auto pt-7">
-          <NodeActivity index={index} shouldReduceMotion={shouldReduceMotion} />
+          <NodeActivity
+            activity={step.activity}
+            index={index}
+            shouldReduceMotion={shouldReduceMotion}
+          />
         </div>
       </div>
     </motion.article>
@@ -151,10 +145,8 @@ function DesktopConnector({
 }) {
   return (
     <div className="relative flex w-10 shrink-0 items-center justify-center 2xl:w-14">
-      {/* Base line */}
       <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-white/[0.08]" />
 
-      {/* Animated line */}
       <motion.div
         initial={
           shouldReduceMotion
@@ -259,56 +251,25 @@ function MobileConnector({
         />
       )}
 
-      <div className="absolute bottom-1 left-1/2 flex h-5 w-5 -translate-x-1/2 items-center justify-center rounded-full bg-[#050505]">
-        <svg
-          width="10"
-          height="10"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-          className="text-zinc-700"
-        >
-          <path
-            d="M12 5V19M12 19L7 14M12 19L17 14"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+      <div
+        aria-hidden="true"
+        className="absolute bottom-1 left-1/2 flex h-5 w-5 -translate-x-1/2 items-center justify-center rounded-full bg-[#050505] font-mono text-[10px] text-zinc-700"
+      >
+        ↓
       </div>
     </div>
   );
 }
 
 function NodeActivity({
+  activity,
   index,
   shouldReduceMotion,
 }: {
+  activity: ArchitectureStep["activity"];
   index: number;
   shouldReduceMotion: boolean | null;
 }) {
-  const labels = [
-    {
-      left: "TAG",
-      right: "TRUE",
-    },
-    {
-      left: "read()",
-      right: "processed",
-    },
-    {
-      left: "API",
-      right: "ready",
-    },
-    {
-      left: "REPORT",
-      right: "generated",
-    },
-  ];
-
-  const activity = labels[index] ?? labels[labels.length - 1];
-
   return (
     <div className="flex min-w-0 items-center justify-between gap-3 rounded-lg border border-white/[0.05] bg-black/30 px-3 py-2.5">
       <span className="shrink-0 font-mono text-[9px] text-zinc-600">

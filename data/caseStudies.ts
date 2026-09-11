@@ -3,10 +3,17 @@ export type CaseStudyMetric = {
   label: string;
 };
 
+export type ArchitectureActivity = {
+  left: string;
+  right: string;
+};
+
 export type ArchitectureStep = {
   number: string;
   title: string;
   description: string;
+  stageLabel: string;
+  activity: ArchitectureActivity;
 };
 
 export type CaseStudyImpact = {
@@ -39,7 +46,6 @@ export type CaseStudy = {
   solution: string[];
 
   architecture: ArchitectureStep[];
-  architectureStageLabels: string[];
 
   impact: CaseStudyImpact[];
 
@@ -114,27 +120,45 @@ export const caseStudies: CaseStudy[] = [
         title: "PLC Data",
         description:
           "Operational tags provide the raw machine state and fault information.",
+        stageLabel: "Signal",
+        activity: {
+          left: "PLC TAG",
+          right: "signal active",
+        },
       },
       {
         number: "02",
         title: "Python",
         description: "Python reads and processes the relevant PLC signals.",
+        stageLabel: "Process",
+        activity: {
+          left: "PYTHON",
+          right: "processed",
+        },
       },
       {
         number: "03",
         title: "Application Layer",
         description:
           "Next.js, Node.js, and SQLite organize and expose useful operational information.",
+        stageLabel: "Application",
+        activity: {
+          left: "APP",
+          right: "available",
+        },
       },
       {
         number: "04",
         title: "Reporting",
         description:
           "Automated output supports Excel and Power BI reporting workflows.",
+        stageLabel: "Output",
+        activity: {
+          left: "REPORT",
+          right: "generated",
+        },
       },
     ],
-
-    architectureStageLabels: ["Signal", "Process", "Application", "Output"],
 
     impact: [
       {
@@ -168,7 +192,7 @@ export const caseStudies: CaseStudy[] = [
 
   /*
    * ============================================================
-   * 02 — PRESUPUESTO FELO
+   * 02 — PRESUPUESTO
    * ============================================================
    */
   {
@@ -237,28 +261,46 @@ export const caseStudies: CaseStudy[] = [
         title: "User Interface",
         description:
           "Next.js and TypeScript provide the dashboard and financial workflows used to record and review activity.",
+        stageLabel: "Interface",
+        activity: {
+          left: "UI",
+          right: "updated",
+        },
       },
       {
         number: "02",
         title: "Authentication",
         description:
           "Firebase Authentication and access approval determine who can enter the application and which data they can access.",
+        stageLabel: "Access",
+        activity: {
+          left: "AUTH",
+          right: "approved",
+        },
       },
       {
         number: "03",
         title: "Financial Data",
         description:
           "Firestore stores user-scoped income, expenses, commitments, cards, and budgeting state.",
+        stageLabel: "Data",
+        activity: {
+          left: "FIRESTORE",
+          right: "synced",
+        },
       },
       {
         number: "04",
         title: "Automation",
         description:
           "Server-side logic handles carry-over, payment calculations, reminders, and recurring financial rules.",
+        stageLabel: "Automation",
+        activity: {
+          left: "RULES",
+          right: "applied",
+        },
       },
     ],
-
-    architectureStageLabels: ["Interface", "Access", "Data", "Automation"],
 
     impact: [
       {
@@ -359,28 +401,46 @@ export const caseStudies: CaseStudy[] = [
         title: "Action Intake",
         description:
           "Power Apps provides a structured interface for creating and reviewing corrective actions.",
+        stageLabel: "Input",
+        activity: {
+          left: "ACTION",
+          right: "created",
+        },
       },
       {
         number: "02",
         title: "Business Logic",
         description:
           "Application rules organize status, ownership, required information, and workflow behavior.",
+        stageLabel: "Rules",
+        activity: {
+          left: "STATUS",
+          right: "validated",
+        },
       },
       {
         number: "03",
         title: "Automation",
         description:
           "Power Automate executes workflow actions that would otherwise require manual follow-up.",
+        stageLabel: "Workflow",
+        activity: {
+          left: "FLOW",
+          right: "triggered",
+        },
       },
       {
         number: "04",
         title: "Operational Follow-up",
         description:
           "Centralized records make action status and accountability easier to understand.",
+        stageLabel: "Follow-up",
+        activity: {
+          left: "OWNER",
+          right: "tracked",
+        },
       },
     ],
-
-    architectureStageLabels: ["Input", "Rules", "Workflow", "Follow-up"],
 
     impact: [
       {
@@ -477,28 +537,46 @@ export const caseStudies: CaseStudy[] = [
         title: "Data Preparation",
         description:
           "Python and Pandas transform raw input into the structure expected by the model.",
+        stageLabel: "Data",
+        activity: {
+          left: "FEATURES",
+          right: "prepared",
+        },
       },
       {
         number: "02",
         title: "Model",
         description:
           "A trained and persisted model performs inference against validated feature inputs.",
+        stageLabel: "Model",
+        activity: {
+          left: "MODEL",
+          right: "loaded",
+        },
       },
       {
         number: "03",
         title: "Prediction API",
         description:
           "FastAPI exposes model inference through a reusable HTTP interface.",
+        stageLabel: "API",
+        activity: {
+          left: "PREDICT",
+          right: "served",
+        },
       },
       {
         number: "04",
         title: "Client Application",
         description:
           "React-based interfaces consume prediction responses and present the result to the user.",
+        stageLabel: "Client",
+        activity: {
+          left: "RESULT",
+          right: "rendered",
+        },
       },
     ],
-
-    architectureStageLabels: ["Data", "Model", "API", "Client"],
 
     impact: [
       {
