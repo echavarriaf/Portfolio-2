@@ -215,7 +215,7 @@ export default function Navbar() {
               className={`ml-2 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
                 isContactActive
                   ? "bg-sky-400 text-black shadow-[0_0_35px_rgba(56,189,248,0.15)]"
-                  : "bg-white text-black hover:bg-sky-400"
+                  : "bg-gray-500 text-black hover:bg-sky-400"
               }`}
             >
               Contact

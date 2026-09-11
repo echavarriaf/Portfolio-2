@@ -154,7 +154,7 @@ export default function Hero() {
                         scale: 0.98,
                       }
                 }
-                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-sky-400 sm:px-7"
+                className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-gray-500 px-6 py-3.5 text-sm font-semibold text-blue-400 transition-colors hover:bg-sky-400 sm:px-7"
               >
                 View my work
 
