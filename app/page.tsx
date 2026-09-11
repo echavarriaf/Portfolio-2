@@ -1,6 +1,9 @@
+import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 
 import About from "@/components/sections/About";
+import Capabilities from "@/components/sections/Capabilities";
+import Contact from "@/components/sections/Contact";
 import Experience from "@/components/sections/Experience";
 import Hero from "@/components/sections/Hero";
 import SelectedWork from "@/components/sections/SelectedWork";
@@ -23,15 +26,12 @@ export default function Home() {
 
         <Experience />
 
-        <section
-          id="contact"
-          className="relative flex min-h-screen items-center justify-center border-t border-white/[0.06] px-6"
-        >
-          <h2 className="text-4xl font-bold">
-            Contact
-          </h2>
-        </section>
+        <Capabilities />
+
+        <Contact />
       </main>
+
+      <Footer />
     </>
   );
 }

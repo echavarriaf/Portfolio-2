@@ -16,6 +16,10 @@ const navItems = [
     label: "Experience",
     href: "#experience",
   },
+  {
+    label: "Skills",
+    href: "#capabilities",
+  },
 ];
 
 export default function Navbar() {
@@ -89,7 +93,6 @@ export default function Navbar() {
           }}
           className="flex items-center justify-between rounded-2xl border px-5 py-3.5 shadow-2xl shadow-black/10 backdrop-blur-xl"
         >
-          {/* Logo */}
           <a
             href="#home"
             onClick={closeMenu}
@@ -104,13 +107,12 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* Desktop navigation */}
           <div className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="relative rounded-full px-4 py-2 text-sm font-medium text-zinc-400 transition-colors duration-300 hover:bg-white/[0.04] hover:text-white"
+                className="relative rounded-full px-3 py-2 text-sm font-medium text-zinc-400 transition-colors duration-300 hover:bg-white/[0.04] hover:text-white lg:px-4"
               >
                 {item.label}
               </a>
@@ -132,7 +134,7 @@ export default function Navbar() {
                       scale: 0.97,
                     }
               }
-              className="ml-3 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-colors duration-300 hover:bg-sky-400"
+              className="ml-2 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition-colors duration-300 hover:bg-sky-400"
             >
               Contact
 
@@ -154,7 +156,6 @@ export default function Navbar() {
             </motion.a>
           </div>
 
-          {/* Mobile button */}
           <button
             type="button"
             aria-label="Toggle navigation menu"
@@ -170,7 +171,9 @@ export default function Navbar() {
 
             <span
               className={`absolute h-px w-5 bg-white transition-all duration-300 ${
-                isOpen ? "scale-x-0 opacity-0" : "scale-x-100 opacity-100"
+                isOpen
+                  ? "scale-x-0 opacity-0"
+                  : "scale-x-100 opacity-100"
               }`}
             />
 
@@ -182,7 +185,6 @@ export default function Navbar() {
           </button>
         </motion.nav>
 
-        {/* Mobile menu */}
         <motion.div
           initial={false}
           animate={{
