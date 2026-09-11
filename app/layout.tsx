@@ -1,9 +1,18 @@
-import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type {
+  Metadata,
+  Viewport,
+} from "next";
 
-import "./globals.css";
+import {
+  Geist,
+  Geist_Mono,
+} from "next/font/google";
+
+import SkipLink from "@/components/ui/SkipLink";
 
 import { siteConfig } from "@/data/site";
+
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +60,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
+
     images: [
       {
         url: "/opengraph-image",
@@ -101,7 +111,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SkipLink />
+
+        <div
+          id="main-content"
+          tabIndex={-1}
+        >
+          {children}
+        </div>
       </body>
     </html>
   );

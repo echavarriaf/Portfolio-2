@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
 
 export default function Error({
@@ -35,7 +36,7 @@ export default function Error({
       />
 
       <div className="relative z-10 mx-auto w-full max-w-3xl text-center">
-        <a
+        <Link
           href="/"
           className="group mx-auto flex w-fit items-center text-xl font-bold tracking-[-0.04em]"
         >
@@ -46,7 +47,7 @@ export default function Error({
           <span className="ml-0.5 text-sky-400">
             .
           </span>
-        </a>
+        </Link>
 
         <div className="mt-16">
           <p className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-red-300">
@@ -55,7 +56,10 @@ export default function Error({
 
           <h1 className="mt-6 text-[clamp(3rem,10vw,6rem)] font-bold leading-[0.95] tracking-[-0.055em]">
             Something didn&apos;t
-            <span className="text-zinc-500"> compile as planned.</span>
+            <span className="text-zinc-500">
+              {" "}
+              compile as planned.
+            </span>
           </h1>
         </div>
 
@@ -90,7 +94,9 @@ export default function Error({
             <p>
               <span className="text-zinc-500">{"}"}</span>{" "}
               <span className="text-purple-400">catch</span>{" "}
-              <span className="text-zinc-500">(error) {"{"}</span>
+              <span className="text-zinc-500">
+                (error) {"{"}
+              </span>
             </p>
 
             <p className="pl-5 text-red-300/80">
@@ -118,12 +124,12 @@ export default function Error({
             Try again
           </button>
 
-          <a
+          <Link
             href="/"
             className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.025] px-7 py-3.5 text-sm font-semibold text-zinc-300 transition-colors hover:bg-white/[0.05] hover:text-white"
           >
             Back to home
-          </a>
+          </Link>
         </div>
       </div>
     </main>

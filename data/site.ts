@@ -1,8 +1,22 @@
-const fallbackUrl = "http://localhost:3000";
+const explicitSiteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.trim();
 
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ??
+const vercelProductionUrl =
+  process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : undefined;
+
+const fallbackUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://example.com"
+    : "http://localhost:3000";
+
+const rawSiteUrl =
+  explicitSiteUrl ||
+  vercelProductionUrl ||
   fallbackUrl;
+
+const siteUrl = rawSiteUrl.replace(/\/$/, "");
 
 export const siteConfig = {
   name: "Felix Echavarria",
