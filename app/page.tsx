@@ -1,6 +1,7 @@
-import Navbar from "@/components/layout/Navbar";
-import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Hero from "@/components/sections/Hero";
+import SelectedWork from "@/components/sections/SelectedWork";
+import Navbar from "@/components/layout/Navbar";
 import InteractiveBackground from "@/components/ui/InteractiveBackground";
 
 export default function Home() {
@@ -15,12 +16,7 @@ export default function Home() {
 
         <About />
 
-        <section
-          id="work"
-          className="relative flex min-h-screen items-center justify-center border-t border-white/[0.06] px-6"
-        >
-          <h2 className="text-4xl font-bold">Work</h2>
-        </section>
+        <SelectedWork />
 
         <section
           id="experience"
