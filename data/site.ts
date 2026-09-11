@@ -1,5 +1,5 @@
 const explicitSiteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  process.env.SITE_URL?.trim();
 
 const vercelProductionUrl =
   process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -7,9 +7,7 @@ const vercelProductionUrl =
     : undefined;
 
 const fallbackUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://example.com"
-    : "http://localhost:3000";
+  "http://localhost:3000";
 
 const rawSiteUrl =
   explicitSiteUrl ||
