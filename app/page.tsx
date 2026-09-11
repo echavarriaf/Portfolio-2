@@ -1,38 +1,37 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
+import About from "@/components/sections/About";
+import InteractiveBackground from "@/components/ui/InteractiveBackground";
 
 export default function Home() {
   return (
     <>
+      <InteractiveBackground />
+
       <Navbar />
 
-      <main>
+      <main className="relative z-10">
         <Hero />
 
-        <section
-          id="about"
-          className="flex min-h-screen items-center justify-center border-t border-white/10 px-6"
-        >
-          <h2 className="text-4xl font-bold">About</h2>
-        </section>
+        <About />
 
         <section
           id="work"
-          className="flex min-h-screen items-center justify-center border-t border-white/10 px-6"
+          className="relative flex min-h-screen items-center justify-center border-t border-white/[0.06] px-6"
         >
           <h2 className="text-4xl font-bold">Work</h2>
         </section>
 
         <section
           id="experience"
-          className="flex min-h-screen items-center justify-center border-t border-white/10 px-6"
+          className="relative flex min-h-screen items-center justify-center border-t border-white/[0.06] px-6"
         >
           <h2 className="text-4xl font-bold">Experience</h2>
         </section>
 
         <section
           id="contact"
-          className="flex min-h-screen items-center justify-center border-t border-white/10 px-6"
+          className="relative flex min-h-screen items-center justify-center border-t border-white/[0.06] px-6"
         >
           <h2 className="text-4xl font-bold">Contact</h2>
         </section>
